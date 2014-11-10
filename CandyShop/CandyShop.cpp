@@ -1,6 +1,7 @@
+//
+//  CandyShop.cpp
+//  CandyShopProject
+//
 
 
-#include "CandyShop.h"
-
-
-//test change
+#include "Candy.h"
