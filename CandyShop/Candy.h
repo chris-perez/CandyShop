@@ -23,6 +23,7 @@ private:
 
 
 public:
+	Candy(string name, int quantity, int wantedOnShelf);
 	string getName();
 	void add(int quantity);
 	void sell(int quantity);
