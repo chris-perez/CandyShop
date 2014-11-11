@@ -26,3 +26,13 @@ void Candy::add(int quantity){
 void Candy::sell(int quantity){
 	this->quantity -= quantity;
 }
+
+void Candy::addToWaitlist(string name) {
+	waitList.push(name);
+}
+
+string Candy::removeFromWaitList() {
+	string name = waitList.front();
+	waitList.pop();
+	return name;
+}

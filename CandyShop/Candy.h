@@ -20,7 +20,7 @@ private:
 	string name;
 	int quantity;
 	int wantedOnShelf;
-	queue<Candy> waitList;
+	queue<string> waitList;
 
 
 public:
@@ -29,7 +29,7 @@ public:
 	void add(int quantity);
 	void sell(int quantity);
 	void addToWaitlist(string name);
-
+	string removeFromWaitList();
 };
 	
 

@@ -11,4 +11,11 @@
 
 #include "Candy.h"
 
+class CandyShop {
+private:
+	//stuff
+public:
+	//other stuff
+};
+
 #endif
