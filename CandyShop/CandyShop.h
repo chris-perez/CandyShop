@@ -14,27 +14,30 @@
 class CandyShop {
 
 private:
-
+	vector<Candy> candyList;
 
 public:
 	void importShipment();
 
 	void print();
 
-	//Candy getCandy(String name); //inquire
+	Candy getCandy(string name); //inquire
 
 	void save();
 
 	void load();
 
-	//void addCandy(Candy candy);
+	void addCandy(Candy candy);
 
-	void sell();
+	//search for candy, decrease count or add to stock, place buyer on waitlist if necessary
+	void sell(Candy candy);
 
 	void delivery();
 
+	//change want value
 	void modify();
 
+	//print out sorted list
 	void list();
 
 	void help();
