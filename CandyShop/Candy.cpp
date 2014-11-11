@@ -36,3 +36,23 @@ string Candy::removeFromWaitList() {
 	waitList.pop();
 	return name;
 }
+
+int Candy::getQuantity(){
+    return quantity;
+}
+
+int Candy::getWanted(){
+    return wantedOnShelf;
+}
+
+void Candy::setName(string name){
+    this->name = name;
+}
+
+void Candy::setQuantity(int quantity){
+    this->quantity = quantity;
+}
+
+void Candy::setWanted(int wantedOnShelf){
+    this->wantedOnShelf = wantedOnShelf;
+}

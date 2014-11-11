@@ -26,6 +26,12 @@ private:
 public:
 	Candy(string name, int quantity, int wantedOnShelf);
 	string getName();
+    int getQuantity();
+    int getWanted();
+    void setName(string name);
+    void setQuantity(int quantity);
+    void setWanted(int wantedOnShelf);
+    
 	void add(int quantity);
 	void sell(int quantity);
 	void addToWaitlist(string name);
