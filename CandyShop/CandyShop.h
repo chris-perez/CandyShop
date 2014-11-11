@@ -12,10 +12,34 @@
 #include "Candy.h"
 
 class CandyShop {
-private:
-	//stuff
-public:
-	//other stuff
-};
 
+private:
+
+
+public:
+	void importShipment();
+
+	void print();
+
+	//Candy getCandy(String name); //inquire
+
+	void save();
+
+	void load();
+
+	//void addCandy(Candy candy);
+
+	void sell();
+
+	void delivery();
+
+	void modify();
+
+	void list();
+
+	void help();
+
+	void quit();
+
+};
 #endif
