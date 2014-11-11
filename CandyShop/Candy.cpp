@@ -12,6 +12,7 @@ Candy::Candy(string name, int quantity, int wantedOnShelf){
 	this->name = name;
 	this->quantity = quantity;
 	this->wantedOnShelf = wantedOnShelf;
+	waitList = {};
 }
 
 string Candy::getName(){

@@ -9,4 +9,6 @@
 #ifndef CandyShopProject_CandyShop_h
 #define CandyShopProject_CandyShop_h
 
+#include "Candy.h"
+
 #endif

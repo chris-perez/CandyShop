@@ -11,6 +11,7 @@
 
 #include <stdio.h>
 #include <string>
+#include <queue>
 
 using namespace std;
 
@@ -19,7 +20,7 @@ private:
 	string name;
 	int quantity;
 	int wantedOnShelf;
-	//Queue waitlist
+	queue<Candy> waitList;
 
 
 public:
