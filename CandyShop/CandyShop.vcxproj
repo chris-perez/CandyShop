@@ -78,6 +78,7 @@
   <ItemGroup>
     <ClInclude Include="Candy.h" />
     <ClInclude Include="CandyShop.h" />
+    <ClInclude Include="Person.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
