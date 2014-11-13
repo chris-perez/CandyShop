@@ -27,6 +27,7 @@ public:
     ~ArrayList();
     int length();
     const Data getStart();
+	Data get(int i);
     Data removeStart();
     const Data getEnd();
     Data removeEnd();

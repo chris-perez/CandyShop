@@ -22,8 +22,8 @@ private:
 	int wantedOnShelf;
 	queue<string> waitList;
 
-
 public:
+	Candy();
 	Candy(string name, int quantity, int wantedOnShelf);
 	string getName();
     int getQuantity();

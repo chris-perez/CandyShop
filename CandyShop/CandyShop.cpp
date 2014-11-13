@@ -5,15 +5,15 @@
 
 #include "CandyShop.h"
 
-Candy* CandyShop::getCandy(string name){
-	for (int i = 0; i < candyList.size; i++){
-		if (candyList.at(i)->getName() == name){
-			return candyList.at(i);
+Candy CandyShop::getCandy(string name){
+	for (int i = 0; i < candyList.length(); i++){
+		if (candyList.get(i).getName() == name){
+			return candyList.get(i);
 		}
 	}
-	return nullptr;
+	return Data();
 }
 
-void CandyShop::addCandy(Candy* candy){
-
+void CandyShop::addCandy(Candy candy){
+	candyList.addToEnd(candy);
 }

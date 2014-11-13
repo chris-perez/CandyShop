@@ -24,6 +24,10 @@ ArrayList::~ArrayList(){
 	ticks += clock() - startTime;
 }
 
+Data ArrayList::get(int i){
+	return arr[i];
+}
+
 // O(1)
 int ArrayList::length(){
 	return numItems;
