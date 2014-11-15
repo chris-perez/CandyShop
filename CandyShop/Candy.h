@@ -10,10 +10,8 @@
 #define __CandyShopProject__Candy__
 
 //#include <stdio.h>
-#include <string>
 #include "Queue.h"
 
-using namespace std;
 
 class Candy{
 private:

@@ -1,18 +1,18 @@
 #ifndef NODE_H
 #define NODE_H
 
-#include "Candy.h"
-#define Data string
+#include <string>
+using namespace std;
 
 class Node {
 private:
-	Data item;
+	string item;
 	Node* next;
 
 public:
-	Node(Data itemIn, Node* nextIn);
+	Node(string itemIn, Node* nextIn);
 
-	Data getItem();
+	string getItem();
 	Node* getNext();
 	void setNext(Node* nextIn);
 	int calcMemInUse();

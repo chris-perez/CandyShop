@@ -1,12 +1,12 @@
 #include "stdafx.h"
 #include "Node.h"
 
-Node::Node(Data itemIn, Node* nextIn) {
-	item = Data(itemIn);
+Node::Node(string itemIn, Node* nextIn) {
+	item = string(itemIn);
 	next = nextIn;
 }
 
-Data Node::getItem() {
+string Node::getItem() {
 	return item;
 }
 Node* Node::getNext() {
