@@ -9,9 +9,9 @@
 #ifndef __CandyShopProject__Candy__
 #define __CandyShopProject__Candy__
 
-#include <stdio.h>
+//#include <stdio.h>
 #include <string>
-#include <queue>
+#include "Queue.h"
 
 using namespace std;
 
@@ -20,7 +20,7 @@ private:
 	string name;
 	int quantity;
 	int wantedOnShelf;
-	queue<string> waitList;
+	Queue waitList;
 
 public:
 	Candy();

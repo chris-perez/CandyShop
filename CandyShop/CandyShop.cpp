@@ -3,7 +3,12 @@
 //  CandyShopProject
 //
 
+#include "stdafx.h"
 #include "CandyShop.h"
+
+CandyShop::CandyShop(ArrayList candyList) {
+	this->candyList = candyList;
+}
 
 Candy CandyShop::getCandy(string name){
 	for (int i = 0; i < candyList.length(); i++){

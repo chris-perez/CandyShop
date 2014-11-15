@@ -18,6 +18,8 @@ private:
 	ArrayList candyList;
 
 public:
+	CandyShop(ArrayList candyList = ArrayList());
+	
 	void importShipment();
 
 	void print();
