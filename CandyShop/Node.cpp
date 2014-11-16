@@ -2,7 +2,7 @@
 #include "Node.h"
 
 Node::Node(string itemIn, Node* nextIn) {
-	item = string(itemIn);
+	item = itemIn;
 	next = nextIn;
 }
 

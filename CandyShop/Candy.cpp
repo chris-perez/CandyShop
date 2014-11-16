@@ -16,6 +16,13 @@ Candy::Candy(string name, int quantity, int wantedOnShelf){
 	waitList = Queue();
 }
 
+Candy::Candy() {
+	name = "None";
+	quantity = 0;
+	wantedOnShelf = 0;
+	waitList = Queue();
+}
+
 string Candy::getName(){
 	return name;
 }
@@ -56,4 +63,12 @@ void Candy::setQuantity(int quantity){
 
 void Candy::setWanted(int wantedOnShelf){
     this->wantedOnShelf = wantedOnShelf;
+}
+
+void Candy::toPrint() {
+	cout << name << endl << "Current stock: " << quantity << endl << "Wanted on shelf: " << wantedOnShelf << endl << "Wait list:" << endl << waitList << endl;
+}
+
+ostream& operator<< (ostream &out, Candy &candy){
+	out << candy.name << "\n";
 }

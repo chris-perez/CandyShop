@@ -11,6 +11,7 @@
 
 //#include <stdio.h>
 #include "Queue.h"
+#include <iostream>
 
 
 class Candy{
@@ -34,6 +35,11 @@ public:
 	void sell(int quantity);
 	void addToWaitlist(string name);
 	string removeFromWaitList();
+
+	void toPrint();
+
+	//only prints out name of candy (for use with ArrayList mostly)
+	friend ostream& operator<< (ostream &out, Candy &candy);
 };
 	
 

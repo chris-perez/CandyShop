@@ -4,6 +4,7 @@
 #include "Node.h"
 
 //Isn't implementing List.h because some methods of List do not apply to queues (only adds to one end)
+//and because it holds strings, not Data (Candy)
 
 class Queue {
 private:
@@ -19,17 +20,18 @@ public:
 	int length();
 
 	//O(1)
-	const Data getStart();
+	const string getStart();
 
 	//O(c)
-	Data removeStart();
+	string removeStart();
 
 	//O(1)
-	const Data getEnd();
+	const string getEnd();
 
 	//O(c)
-	void addToEnd(Data toAdd);
+	void addToEnd(string toAdd);
 
+	friend ostream& operator<< (ostream &out, Queue &queue);
 };
 
 #endif

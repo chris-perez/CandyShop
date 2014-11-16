@@ -17,7 +17,7 @@ Queue::~Queue() {
 }
 
 //O(c)
-void Queue::addToEnd(Data toAdd) {
+void Queue::addToEnd(string toAdd) {
 	//creating first item in the list
 	if (start == nullptr) {
 		start = new Node(toAdd, nullptr);
@@ -35,21 +35,33 @@ int Queue::length() {
 	return len;
 }
 //O(c)
-const Data Queue::getStart() {
+const string Queue::getStart() {
 	return start->getItem();
 }
 //O(c)
-Data Queue::removeStart() {
+string Queue::removeStart() {
 	//we need to hold onto the memory in start before we overwrite it so we can release it
 	Node* tempPtr = start;
 	start = start->getNext();
-	Data toReturn = Data(tempPtr->getItem());
+	string toReturn = tempPtr->getItem();
 	delete tempPtr;
 	tempPtr = nullptr;
 	len--;
 	return toReturn;
 }
 //O(1)
-const Data Queue::getEnd() {
+const string Queue::getEnd() {
 	return end->getItem();
+}
+
+ostream& operator<< (ostream &out, Queue &queue){
+	// Since operator<< is a friend, we can access the data members of the class directly.
+	Node* current = queue.start;
+	int i = 0;
+	while (current != nullptr) {
+		//i will only increment after this line of code is executed
+		out << "[" << i++ << "] \t" << current->getItem() << "\n";
+		current = current->getNext();
+	}
+	return out;
 }

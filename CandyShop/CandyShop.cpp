@@ -16,9 +16,13 @@ Candy CandyShop::getCandy(string name){
 			return candyList.get(i);
 		}
 	}
-	return Data();
+	return Candy();
 }
 
 void CandyShop::addCandy(Candy candy){
 	candyList.addToEnd(candy);
+}
+
+void CandyShop::print() {
+	candyList.printList();
 }

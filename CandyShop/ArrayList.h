@@ -11,6 +11,7 @@
 
 #include <stdio.h>
 #include "List.h"
+using namespace std;
 
 class ArrayList : public List {
 private:
