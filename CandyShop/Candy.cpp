@@ -6,13 +6,21 @@
 //  Copyright (c) 2014 Noah. All rights reserved.
 //
 
+#include "stdafx.h"
 #include "Candy.h"
 
 Candy::Candy(string name, int quantity, int wantedOnShelf){
 	this->name = name;
 	this->quantity = quantity;
 	this->wantedOnShelf = wantedOnShelf;
-	waitList = {};
+	waitList = Queue();
+}
+
+Candy::Candy() {
+	name = "None";
+	quantity = 0;
+	wantedOnShelf = 0;
+	waitList = Queue();
 }
 
 string Candy::getName(){
@@ -28,12 +36,12 @@ void Candy::sell(int quantity){
 }
 
 void Candy::addToWaitlist(string personName) {
-	waitList.push(personName);
+	waitList.addToEnd(personName);
 }
 
 string Candy::removeFromWaitList() {
-	string name = waitList.front();
-	waitList.pop();
+	string name = waitList.getStart();
+	waitList.removeStart();
 	return name;
 }
 
@@ -55,4 +63,13 @@ void Candy::setQuantity(int quantity){
 
 void Candy::setWanted(int wantedOnShelf){
     this->wantedOnShelf = wantedOnShelf;
+}
+
+void Candy::toPrint() {
+	cout << name << endl << "Current stock: " << quantity << endl << "Wanted on shelf: " << wantedOnShelf << endl << "Wait list:" << endl << waitList << endl;
+}
+
+ostream& operator<< (ostream &out, Candy &candy){
+	out << candy.name << "\n";
+	return out;
 }

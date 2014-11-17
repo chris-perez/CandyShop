@@ -9,18 +9,17 @@
 #ifndef __CandyShopProject__Candy__
 #define __CandyShopProject__Candy__
 
-#include <stdio.h>
-#include <string>
-#include <queue>
+//#include <stdio.h>
+#include "Queue.h"
+#include <iostream>
 
-using namespace std;
 
 class Candy{
 private:
 	string name;
 	int quantity;
 	int wantedOnShelf;
-	queue<string> waitList;
+	Queue waitList;
 
 public:
 	Candy();
@@ -36,6 +35,11 @@ public:
 	void sell(int quantity);
 	void addToWaitlist(string name);
 	string removeFromWaitList();
+
+	void toPrint();
+
+	//only prints out name of candy (for use with ArrayList mostly)
+	friend ostream& operator<< (ostream &out, Candy &candy);
 };
 	
 
