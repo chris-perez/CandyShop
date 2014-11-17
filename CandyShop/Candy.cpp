@@ -71,4 +71,5 @@ void Candy::toPrint() {
 
 ostream& operator<< (ostream &out, Candy &candy){
 	out << candy.name << "\n";
+	return out;
 }
