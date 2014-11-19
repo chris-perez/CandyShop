@@ -31,7 +31,7 @@ int main(int argc, const char * argv[])
 			cout << "Enter name of candy: ";
 			cin >> x;
 			Candy* inquireCandy = myShop->getCandy(x);
-			if (inquireCandy->getName() != "None") {
+			if (inquireCandy != nullptr) {
 				inquireCandy->toPrint();
 			}
 			else {
@@ -81,7 +81,21 @@ int main(int argc, const char * argv[])
 		}
 		if (x == "s" || x == "S")
 		{
-			cout << "sell" << endl;
+			string name;
+			cout << "What candy would you like to sell?" << endl;
+			cin >> name;
+			Candy* inquireCandy = myShop->getCandy(name);
+
+			int quantity;
+			cout << "Quantity?" << endl;
+			cin >> quantity;
+
+			if (inquireCandy != nullptr){
+				inquireCandy->sell(quantity);
+			}
+			else{
+				cout << "Error: Candy not found." << endl;
+			}
 		}
 		if (x == "q" || x == "Q")
 		{

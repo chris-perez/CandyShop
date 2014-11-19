@@ -16,7 +16,7 @@ Candy* CandyShop::getCandy(string name){
 			return candyList.get(i);
 		}
 	}
-	return new Candy();
+	return nullptr;
 }
 
 void CandyShop::addCandy(Candy* candy){
