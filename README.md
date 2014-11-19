@@ -1,12 +1,10 @@
 CandyShop
 =========
 
-#####
-To Update: 
+####To Update: 
 
   git pull
-#####
-To Commit and Push changes:
+####To Commit and Push changes:
 
   git add -A
   
