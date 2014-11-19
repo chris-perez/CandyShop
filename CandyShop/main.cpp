@@ -16,7 +16,7 @@ int main(int argc, const char * argv[])
 	string x = "";
 	cout << "Enter H for a list of Commands: ";
 	cin >> x;
-	
+
 	while (running)
 	{
 		if (x == "h" || x == "H")
@@ -93,6 +93,7 @@ int main(int argc, const char * argv[])
 				cin >> quantity;
 				if (inquireCandy->sell(quantity)){
 				}
+				else{
 					//if out of stock
 					string answer;
 					cout << "The candy you asked for is out of stock." << endl;
@@ -103,11 +104,11 @@ int main(int argc, const char * argv[])
 						cin >> name;
 						inquireCandy->addToWaitlist(name);
 						cout << "Thank you." << endl;
-					}else{
+					}
+					else{
 						cout << "Sorry for the inconvenience." << endl;
 					}
 				}
-				
 			}
 			else{
 				cout << "Error: Candy not found." << endl;
@@ -118,8 +119,6 @@ int main(int argc, const char * argv[])
 			cout << "Goodbye!" << endl;
 			running = false;
 		}
-
+		return 0;
 	}
-	return 0;
-	
 }
