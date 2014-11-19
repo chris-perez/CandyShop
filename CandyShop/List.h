@@ -15,7 +15,7 @@
 using namespace std;
 
 
-#define Data Candy
+#define Data Candy*
 
 class List {
 public:

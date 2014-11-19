@@ -7,11 +7,7 @@
 
 // O(1)
 ArrayList::ArrayList(){
-	long startTime = clock();
-
 	arr = new Data[capacity];
-
-	ticks += clock() - startTime;
 }
 
 // O(1)
@@ -60,7 +56,7 @@ Data ArrayList::removeEnd(){
 	long startTime = clock();
 
 	Data temp = arr[numItems-1];
-	arr[numItems - 1] = Data();
+	arr[numItems - 1] = nullptr;
 	numItems--;
 	return temp;
 
@@ -91,13 +87,16 @@ void ArrayList::addToEnd(Data toAdd){
 
 // O(n)
 void ArrayList::printList(){
-	long startTime = clock();
-	cout << "{";
-	for (int i = 0; i < numItems-1; i++){
-		cout << arr[i] << ", ";
+	if (numItems > 0){
+		cout << "{";
+		for (int i = 0; i < numItems - 1; i++){
+			cout << *arr[i] << ", ";
+		}
+		cout << *arr[numItems - 1] << "}" << endl;
 	}
-	cout << arr[numItems - 1] << "}" << endl;
-	ticks += clock() - startTime;
+	else{
+		cout << "{}" << endl;
+	}
 }
 
 // O(n)

@@ -24,16 +24,16 @@ public:
 
 	void print();
 
-	Candy getCandy(string name); //inquire
+	Candy* getCandy(string name); //inquire
 
 	void save();
 
 	void load();
 
-	void addCandy(Candy candy);
+	void addCandy(Candy* candy);
 
 	//search for candy, decrease count or add to stock, place buyer on waitlist if necessary
-	void sell(Candy candy);
+	void sell(Candy* candy);
 
 	void delivery();
 

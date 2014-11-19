@@ -10,16 +10,16 @@ CandyShop::CandyShop(ArrayList candyList) {
 	this->candyList = candyList;
 }
 
-Candy CandyShop::getCandy(string name){
+Candy* CandyShop::getCandy(string name){
 	for (int i = 0; i < candyList.length(); i++){
-		if (candyList.get(i).getName() == name){
+		if (candyList.get(i)->getName() == name){
 			return candyList.get(i);
 		}
 	}
-	return Candy();
+	return new Candy();
 }
 
-void CandyShop::addCandy(Candy candy){
+void CandyShop::addCandy(Candy* candy){
 	candyList.addToEnd(candy);
 }
 

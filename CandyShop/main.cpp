@@ -11,12 +11,13 @@
 
 int main(int argc, const char * argv[])
 {
-	CandyShop myShop = CandyShop();
+	CandyShop* myShop = new CandyShop();
 	bool running = true;
 	string x = "";
 	cout << "Enter H for a list of Commands: ";
 	cin >> x;
-	while (running == true)
+	
+	while (running)
 	{
 		if (x == "h" || x == "H")
 		{
@@ -29,9 +30,9 @@ int main(int argc, const char * argv[])
 		{
 			cout << "Enter name of candy: ";
 			cin >> x;
-			Candy inquireCandy = myShop.getCandy(x);
-			if (inquireCandy.getName() != "None") {
-				inquireCandy.toPrint();
+			Candy* inquireCandy = myShop->getCandy(x);
+			if (inquireCandy->getName() != "None") {
+				inquireCandy->toPrint();
 			}
 			else {
 				cout << "Candy not found in store." << endl;
@@ -41,24 +42,25 @@ int main(int argc, const char * argv[])
 		if (x == "l" || x == "L")
 		{
 			//THIS IS NOT ALPHABETIZED
-			myShop.print();
+			myShop->print();
 		}
 		//add
 		if (x == "a" || x == "A")
 		{
+			string name;
 			cout << "Enter name of candy: ";
-			cin >> x;
-			Candy inquireCandy = myShop.getCandy(x);
-			if (inquireCandy.getName() != "None") {
+			cin >> name;
+			Candy* inquireCandy = myShop->getCandy(name);
+			if (inquireCandy->getName() != "None") {
 				cout << "Candy already exists in store." << endl;
-				inquireCandy.toPrint();
+				inquireCandy->toPrint();
 			}
 			else {
 				int wanted;
-				cout << "How many of " << x << " would you like on shelf? Enter number: ";
+				cout << "How many of " << name << " would you like on shelf? Enter number: ";
 				cin >> wanted;
-				myShop.addCandy(Candy(x, 0, wanted));
-				cout << x << " added." << endl;
+				myShop->addCandy(new Candy(name, 0, wanted));
+				cout << name << " added." << endl;
 			}
 		}
 		if (x == "m" || x == "M")
@@ -89,4 +91,5 @@ int main(int argc, const char * argv[])
 
 	}
 	return 0;
+	
 }
