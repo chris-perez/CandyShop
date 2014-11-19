@@ -1,9 +1,9 @@
+
 //
 //  CandyShop.cpp
 //  CandyShopProject
 //
 
-#include "stdafx.h"
 #include "CandyShop.h"
 
 CandyShop::CandyShop(ArrayList candyList) {

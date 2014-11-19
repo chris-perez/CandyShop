@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 2013
 VisualStudioVersion = 12.0.21005.1
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "CandyShop", "CandyShop.vcxproj", "{37D37D82-368B-4D4B-B65E-AD7461484F07}"
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "CandyShop", "CandyShop.vcxproj", "{26E67B73-9533-400C-B08D-0E4FC655C614}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -11,10 +11,10 @@ Global
 		Release|Win32 = Release|Win32
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{37D37D82-368B-4D4B-B65E-AD7461484F07}.Debug|Win32.ActiveCfg = Debug|Win32
-		{37D37D82-368B-4D4B-B65E-AD7461484F07}.Debug|Win32.Build.0 = Debug|Win32
-		{37D37D82-368B-4D4B-B65E-AD7461484F07}.Release|Win32.ActiveCfg = Release|Win32
-		{37D37D82-368B-4D4B-B65E-AD7461484F07}.Release|Win32.Build.0 = Release|Win32
+		{26E67B73-9533-400C-B08D-0E4FC655C614}.Debug|Win32.ActiveCfg = Debug|Win32
+		{26E67B73-9533-400C-B08D-0E4FC655C614}.Debug|Win32.Build.0 = Debug|Win32
+		{26E67B73-9533-400C-B08D-0E4FC655C614}.Release|Win32.ActiveCfg = Release|Win32
+		{26E67B73-9533-400C-B08D-0E4FC655C614}.Release|Win32.Build.0 = Release|Win32
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

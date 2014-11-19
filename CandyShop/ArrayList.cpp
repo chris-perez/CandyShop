@@ -2,7 +2,6 @@
 //Last-Modified-Date: 11/3/2014
 //Contains an array with various methods for manipulating the array.
 
-#include "stdafx.h"
 #include "ArrayList.h"
 #include <time.h>
 

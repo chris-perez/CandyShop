@@ -6,7 +6,6 @@
 //  Copyright (c) 2014 Noah. All rights reserved.
 //
 
-#include "stdafx.h"
 #include "Candy.h"
 
 Candy::Candy(string name, int quantity, int wantedOnShelf){

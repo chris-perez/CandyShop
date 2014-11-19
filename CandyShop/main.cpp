@@ -5,7 +5,8 @@
 //  Created by Noah on 11/10/14.
 //  Copyright (c) 2014 Noah. All rights reserved.
 //
-//#include <stdio.h>
+
+#include <stdio.h>
 #include "CandyShop.h"
 
 int main(int argc, const char * argv[])
