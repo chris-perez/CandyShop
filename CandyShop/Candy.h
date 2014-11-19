@@ -32,7 +32,7 @@ public:
     void setWanted(int wantedOnShelf);
     
 	void add(int quantity);
-	void sell(int quantity);
+	bool sell(int quantity);
 	void addToWaitlist(string name);
 	string removeFromWaitList();
 

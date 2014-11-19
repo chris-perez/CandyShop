@@ -51,7 +51,7 @@ int main(int argc, const char * argv[])
 			cout << "Enter name of candy: ";
 			cin >> name;
 			Candy* inquireCandy = myShop->getCandy(name);
-			if (inquireCandy->getName() != "None") {
+			if (inquireCandy != nullptr) {
 				cout << "Candy already exists in store." << endl;
 				inquireCandy->toPrint();
 			}
@@ -79,6 +79,7 @@ int main(int argc, const char * argv[])
 		{
 			cout << "return" << endl;
 		}
+		//sell
 		if (x == "s" || x == "S")
 		{
 			string name;
@@ -86,12 +87,27 @@ int main(int argc, const char * argv[])
 			cin >> name;
 			Candy* inquireCandy = myShop->getCandy(name);
 
-			int quantity;
-			cout << "Quantity?" << endl;
-			cin >> quantity;
-
 			if (inquireCandy != nullptr){
-				inquireCandy->sell(quantity);
+				int quantity;
+				cout << "Quantity?" << endl;
+				cin >> quantity;
+				if (inquireCandy->sell(quantity)){
+				}
+					//if out of stock
+					string answer;
+					cout << "The candy you asked for is out of stock." << endl;
+					cout << "Would you like us to add you to the waitlist for this candy? (y/n)" << endl;
+					cin >> answer;
+					if (answer == "y"){
+						cout << "What is your name?" << endl;
+						cin >> name;
+						inquireCandy->addToWaitlist(name);
+						cout << "Thank you." << endl;
+					}else{
+						cout << "Sorry for the inconvenience." << endl;
+					}
+				}
+				
 			}
 			else{
 				cout << "Error: Candy not found." << endl;

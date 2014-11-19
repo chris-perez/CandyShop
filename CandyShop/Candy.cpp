@@ -30,8 +30,15 @@ void Candy::add(int quantity){
 	this->quantity += quantity;
 }
 
-void Candy::sell(int quantity){
-	this->quantity -= quantity;
+bool Candy::sell(int quantity){
+	if (this->quantity > 0){
+		this->quantity -= quantity;
+		return true;
+	}
+	else{
+		return false;
+	}
+	
 }
 
 void Candy::addToWaitlist(string personName) {
