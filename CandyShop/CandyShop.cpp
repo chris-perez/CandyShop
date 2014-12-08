@@ -24,6 +24,10 @@ void CandyShop::addCandy(Candy* candy){
 	candyList.insert(candy);
 }
 
+void CandyShop::order(){
+
+}
+
 void CandyShop::print() {
 	candyList.printList();
 }

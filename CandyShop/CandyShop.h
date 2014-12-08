@@ -37,6 +37,8 @@ public:
 
 	void delivery();
 
+	void order();
+
 	//change want value
 	void modify();
 

@@ -68,11 +68,25 @@ int main(int argc, const char * argv[])
 		}
 		if (x == "m" || x == "M")
 		{
-			cout << "modify" << endl;
+			string name;
+			int x;
+			cout << "Enter name of candy: ";
+			cin >> name;
+			Candy* modifyCandy = myShop->getCandy(name);
+			if (modifyCandy->getName() != "None") {
+				cout << "there are currently: " << modifyCandy->getWanted() << " " << name << endl;
+				cout << "how many would you like now?" << endl;
+				cin >> x;
+				modifyCandy->setWanted(x);
+			}
+			else {
+				cout << "Candy not found in store." << endl;
+			}
 			continue;
 		}
 		if (x == "o" || x == "O")
 		{
+			myShop->order();
 			cout << "order" << endl;
 			continue;
 		}
