@@ -22,6 +22,9 @@ private:
 
     long ticks = 0;
     void doubleSize();
+
+	int binarySearch(string toFind, int len, Data start);
+	int searchForInsert(string toFind, int len, int currIdx);
     
 public:
     ArrayList();
@@ -35,6 +38,9 @@ public:
     void addToEnd(Data toAdd);
     void printList();
     
+	int binarySearch(string toFind);
+	bool insert(Data toAdd);
+
     int calcMemInUse();
     long getElapsedTime();
 };

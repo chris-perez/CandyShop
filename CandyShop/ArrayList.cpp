@@ -85,6 +85,7 @@ void ArrayList::addToEnd(Data toAdd){
 	ticks += clock() - startTime;
 }
 
+
 // O(n)
 void ArrayList::printList(){
 	if (numItems > 0){
@@ -97,6 +98,71 @@ void ArrayList::printList(){
 	else{
 		cout << "{}" << endl;
 	}
+}
+
+int ArrayList::searchForInsert(string toFind, int len, int currIdx) {
+	//base case for found
+	if (arr[currIdx + len / 2]->getName() == toFind) {
+		return -1;
+	}
+	//base case for not found
+	if (len <= 1) {
+		if (arr[currIdx + len / 2]->getName() > toFind) {
+			return currIdx;
+		}
+		else {
+			return currIdx + 1;
+		}
+	}
+	//recursive cases
+	if (arr[currIdx + len / 2]->getName() > toFind) {
+		return searchForInsert(toFind, len / 2, currIdx);
+	}
+	else {
+		return searchForInsert(toFind, len - (len / 2 + 1), currIdx + (len / 2 + 1));
+	}
+}
+
+//returns true or false to indicate whether or not it was successful
+bool ArrayList::insert(Data toAdd){
+	int idx = searchForInsert(toAdd->getName(), numItems, 0);
+	if (idx != -1) {
+		if (numItems == capacity) {
+			doubleSize();
+		}
+		for (int i = numItems; i >= idx; i--) {
+			arr[i] = arr[i - 1];
+		}
+		arr[idx] = toAdd;
+		return true;
+	}
+	else {
+		//candy already exists in list
+		return false;
+	}
+}
+
+int ArrayList::binarySearch(string toFind, int len, Data start) {
+	//base case for found
+	if (arr[len/2]->getName() == toFind) {
+		return len/2;
+	}
+	//base case for not found
+	if (len <= 1) {
+		return -1;
+	}
+	//recursive cases
+	if (arr[len / 2]->getName() > toFind) {
+		return binarySearch(toFind, len/2, start);
+	}
+	else {
+		return binarySearch(toFind, len - (len / 2 + 1), start + len / 2 + 1);
+	}
+}
+
+//returns the index of the desired item, or -1 if not found
+int ArrayList::binarySearch(string toFind) {
+	return binarySearch(toFind, numItems, arr[0]);
 }
 
 // O(n)

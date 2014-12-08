@@ -11,16 +11,17 @@ CandyShop::CandyShop(ArrayList candyList) {
 }
 
 Candy* CandyShop::getCandy(string name){
-	for (int i = 0; i < candyList.length(); i++){
-		if (candyList.get(i)->getName() == name){
-			return candyList.get(i);
-		}
+	int idx = candyList.binarySearch(name);
+	if (idx != -1) {
+		return candyList.get(idx);
 	}
-	return nullptr;
+	else {
+		return nullptr;
+	}
 }
 
 void CandyShop::addCandy(Candy* candy){
-	candyList.addToEnd(candy);
+	candyList.insert(candy);
 }
 
 void CandyShop::print() {
