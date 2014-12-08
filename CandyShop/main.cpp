@@ -37,12 +37,14 @@ int main(int argc, const char * argv[])
 			else {
 				cout << "Candy not found in store." << endl;
 			}
+			continue;
 		}
 		//list
 		if (x == "l" || x == "L")
 		{
 			//THIS IS NOT ALPHABETIZED
 			myShop->print();
+			continue;
 		}
 		//add
 		if (x == "a" || x == "A")
@@ -62,22 +64,27 @@ int main(int argc, const char * argv[])
 				myShop->addCandy(new Candy(name, 0, wanted));
 				cout << name << " added." << endl;
 			}
+			continue;
 		}
 		if (x == "m" || x == "M")
 		{
 			cout << "modify" << endl;
+			continue;
 		}
 		if (x == "o" || x == "O")
 		{
 			cout << "order" << endl;
+			continue;
 		}
 		if (x == "d" || x == "D")
 		{
 			cout << "delivery" << endl;
+			continue;
 		}
 		if (x == "r" || x == "R")
 		{
 			cout << "return" << endl;
+			continue;
 		}
 		//sell
 		if (x == "s" || x == "S")
@@ -113,11 +120,13 @@ int main(int argc, const char * argv[])
 			else{
 				cout << "Error: Candy not found." << endl;
 			}
+			continue;
 		}
 		if (x == "q" || x == "Q")
 		{
 			cout << "Goodbye!" << endl;
 			running = false;
+			continue;
 		}
 		return 0;
 	}
