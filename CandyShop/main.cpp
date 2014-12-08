@@ -18,8 +18,8 @@ using namespace std;
 
 int main(int argc, const char * argv[])
 {
-    parseFile("testFile.txt");
-    printToFile("testOutput.txt");
+    //parseFile("testFile.txt");
+    //printToFile("testOutput.txt");
     
 	CandyShop* myShop = new CandyShop();
 	bool running = true;
