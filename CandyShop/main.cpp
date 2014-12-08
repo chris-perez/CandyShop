@@ -41,7 +41,7 @@ int main(int argc, const char * argv[])
 		//list
 		if (x == "l" || x == "L")
 		{
-			//THIS IS NOT ALPHABETIZED
+			//THIS IS MAYBE ALPHABETIZED
 			myShop->print();
 		}
 		//add
