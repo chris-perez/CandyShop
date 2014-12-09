@@ -48,11 +48,9 @@ void printToFile(string filename){
 		outf << "This is line 1" << endl;
 		outf << "This is line 2" << endl;
 		outf.close();
-	}
-	else {// Print an error and exit
+	}else {// Print an error and exit
 		cerr << "Can't write to file" << endl;
 	}
-
 }
 
 

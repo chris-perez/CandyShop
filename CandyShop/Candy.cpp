@@ -26,6 +26,10 @@ string Candy::getName(){
 	return name;
 }
 
+Queue Candy::getWaitlist(){
+	return waitList;
+}
+
 void Candy::add(int quantity){
 	this->quantity += quantity;
 }
