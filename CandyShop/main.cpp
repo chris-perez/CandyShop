@@ -93,7 +93,7 @@ int main(int argc, const char * argv[])
 		//list
 		else if (x == "l" || x == "L")
 		{
-			//THIS IS MAYBE ALPHABETIZED
+			//THIS IS ALPHABETIZED
 			myShop->print();
 		}
 		//add
@@ -117,18 +117,22 @@ int main(int argc, const char * argv[])
 		}
 		else if (x == "m" || x == "M")
 		{
+			//find candy by name, ask for modifications to WANT property of the candy, using getters & setters
 			cout << "modify" << endl;
 		}
 		else if (x == "o" || x == "O")
 		{
+			//go through candies (linearly), compare want and have values, add an order to file for the number needed for all candies
 			cout << "order" << endl;
 		}
 		else if (x == "d" || x == "D")
 		{
+			//read candy name in file, find it in list, update have values accordingly
 			cout << "delivery" << endl;
 		}
 		else if (x == "r" || x == "R")
 		{
+			//go through candies linearly, compare want and have values, add a return order to file for excessive numbers of candies
 			cout << "return" << endl;
 		}
 		//sell
@@ -144,6 +148,7 @@ int main(int argc, const char * argv[])
 				cout << "Quantity?" << endl;
 				cin >> quantity;
 				if (inquireCandy->sell(quantity)){
+					cout << "Enjoy your candy." << endl;
 				}
 				else{
 					//if out of stock
