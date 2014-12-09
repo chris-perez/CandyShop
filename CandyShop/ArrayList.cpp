@@ -89,14 +89,12 @@ void ArrayList::addToEnd(Data toAdd){
 // O(n)
 void ArrayList::printList(){
 	if (numItems > 0){
-		cout << "{";
-		for (int i = 0; i < numItems - 1; i++){
-			cout << *arr[i] << ", ";
+		for (int i = 0; i < numItems; i++){
+			cout << *arr[i] << endl;
 		}
-		cout << *arr[numItems - 1] << "}" << endl;
 	}
 	else{
-		cout << "{}" << endl;
+		cout << "No items in list" << endl;
 	}
 }
 
@@ -125,6 +123,11 @@ int ArrayList::searchForInsert(string toFind, int len, int currIdx) {
 
 //returns true or false to indicate whether or not it was successful
 bool ArrayList::insert(Data toAdd){
+	if (numItems == 0) {
+		arr[0] = toAdd;
+		numItems++;
+		return true;
+	}
 	int idx = searchForInsert(toAdd->getName(), numItems, 0);
 	if (idx != -1) {
 		if (numItems == capacity) {
@@ -134,6 +137,7 @@ bool ArrayList::insert(Data toAdd){
 			arr[i] = arr[i - 1];
 		}
 		arr[idx] = toAdd;
+		numItems++;
 		return true;
 	}
 	else {
@@ -162,7 +166,12 @@ int ArrayList::binarySearch(string toFind, int len, Data start) {
 
 //returns the index of the desired item, or -1 if not found
 int ArrayList::binarySearch(string toFind) {
-	return binarySearch(toFind, numItems, arr[0]);
+	if (numItems == 0) {
+		return -1;
+	}
+	else {
+		return binarySearch(toFind, numItems, arr[0]);
+	}
 }
 
 // O(n)
