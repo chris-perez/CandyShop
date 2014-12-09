@@ -14,11 +14,11 @@
 		<string>https://github.com/cperez3/CandyShop.git</string>
 	</dict>
 	<key>IDESourceControlProjectPath</key>
-	<string>CandyShop/candyShopFinal.xcodeproj</string>
+	<string>candyShopFinal.xcodeproj</string>
 	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
 	<dict>
 		<key>D98ED72341BF5E3C5746083C7FA2E79458C57E52</key>
-		<string>../../..</string>
+		<string>../..</string>
 	</dict>
 	<key>IDESourceControlProjectURL</key>
 	<string>https://github.com/cperez3/CandyShop.git</string>

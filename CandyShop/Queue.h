@@ -2,7 +2,7 @@
 #define QUEUE_H
 
 #include "Node.h"
-
+#include <iostream>
 //Isn't implementing List.h because some methods of List do not apply to queues (only adds to one end)
 //and because it holds strings, not Data (Candy)
 

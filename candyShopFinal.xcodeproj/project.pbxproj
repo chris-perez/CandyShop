@@ -7,12 +7,12 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		0447692F1A36569E0036C95A /* ArrayList.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 044769251A36569E0036C95A /* ArrayList.cpp */; };
-		044769301A36569E0036C95A /* Candy.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 044769271A36569E0036C95A /* Candy.cpp */; };
-		044769311A36569E0036C95A /* CandyShop.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 044769291A36569E0036C95A /* CandyShop.cpp */; };
-		044769321A36569E0036C95A /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 0447692A1A36569E0036C95A /* main.cpp */; };
-		044769331A36569E0036C95A /* Node.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 0447692D1A36569E0036C95A /* Node.cpp */; };
-		047CEBAE1A36571E000BAE9B /* Queue.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 047CEBAC1A36571E000BAE9B /* Queue.cpp */; };
+		04519FE61A365BD80066D9E1 /* ArrayList.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 04519FD81A365BD80066D9E1 /* ArrayList.cpp */; };
+		04519FE71A365BD80066D9E1 /* Candy.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 04519FDA1A365BD80066D9E1 /* Candy.cpp */; };
+		04519FE81A365BD80066D9E1 /* CandyShop.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 04519FDC1A365BD80066D9E1 /* CandyShop.cpp */; };
+		04519FE91A365BD80066D9E1 /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 04519FDF1A365BD80066D9E1 /* main.cpp */; };
+		04519FEA1A365BD80066D9E1 /* Node.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 04519FE01A365BD80066D9E1 /* Node.cpp */; };
+		04519FEB1A365BD80066D9E1 /* Queue.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 04519FE41A365BD80066D9E1 /* Queue.cpp */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -29,20 +29,20 @@
 
 /* Begin PBXFileReference section */
 		0447691B1A36562E0036C95A /* candyShopFinal */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = candyShopFinal; sourceTree = BUILT_PRODUCTS_DIR; };
-		044769251A36569E0036C95A /* ArrayList.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ArrayList.cpp; sourceTree = "<group>"; };
-		044769261A36569E0036C95A /* ArrayList.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ArrayList.h; sourceTree = "<group>"; };
-		044769271A36569E0036C95A /* Candy.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Candy.cpp; sourceTree = "<group>"; };
-		044769281A36569E0036C95A /* Candy.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Candy.h; sourceTree = "<group>"; };
-		044769291A36569E0036C95A /* CandyShop.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = CandyShop.cpp; sourceTree = "<group>"; };
-		0447692A1A36569E0036C95A /* main.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = main.cpp; sourceTree = "<group>"; };
-		0447692B1A36569E0036C95A /* CandyShop.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CandyShop.h; sourceTree = "<group>"; };
-		0447692C1A36569E0036C95A /* List.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = List.h; sourceTree = "<group>"; };
-		0447692D1A36569E0036C95A /* Node.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Node.cpp; sourceTree = "<group>"; };
-		0447692E1A36569E0036C95A /* ReadMe.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = ReadMe.txt; sourceTree = "<group>"; };
-		047CEBAA1A36571E000BAE9B /* Node.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Node.h; sourceTree = SOURCE_ROOT; };
-		047CEBAB1A36571E000BAE9B /* Person.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Person.h; sourceTree = SOURCE_ROOT; };
-		047CEBAC1A36571E000BAE9B /* Queue.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Queue.cpp; sourceTree = SOURCE_ROOT; };
-		047CEBAD1A36571E000BAE9B /* Queue.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Queue.h; sourceTree = SOURCE_ROOT; };
+		04519FD81A365BD80066D9E1 /* ArrayList.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = ArrayList.cpp; path = CandyShop/ArrayList.cpp; sourceTree = SOURCE_ROOT; };
+		04519FD91A365BD80066D9E1 /* ArrayList.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ArrayList.h; path = CandyShop/ArrayList.h; sourceTree = SOURCE_ROOT; };
+		04519FDA1A365BD80066D9E1 /* Candy.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = Candy.cpp; path = CandyShop/Candy.cpp; sourceTree = SOURCE_ROOT; };
+		04519FDB1A365BD80066D9E1 /* Candy.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Candy.h; path = CandyShop/Candy.h; sourceTree = SOURCE_ROOT; };
+		04519FDC1A365BD80066D9E1 /* CandyShop.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = CandyShop.cpp; path = CandyShop/CandyShop.cpp; sourceTree = SOURCE_ROOT; };
+		04519FDD1A365BD80066D9E1 /* CandyShop.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CandyShop.h; path = CandyShop/CandyShop.h; sourceTree = SOURCE_ROOT; };
+		04519FDE1A365BD80066D9E1 /* List.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = List.h; path = CandyShop/List.h; sourceTree = SOURCE_ROOT; };
+		04519FDF1A365BD80066D9E1 /* main.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = main.cpp; path = CandyShop/main.cpp; sourceTree = SOURCE_ROOT; };
+		04519FE01A365BD80066D9E1 /* Node.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = Node.cpp; path = CandyShop/Node.cpp; sourceTree = SOURCE_ROOT; };
+		04519FE11A365BD80066D9E1 /* Node.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Node.h; path = CandyShop/Node.h; sourceTree = SOURCE_ROOT; };
+		04519FE21A365BD80066D9E1 /* ReadMe.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = ReadMe.txt; path = CandyShop/ReadMe.txt; sourceTree = SOURCE_ROOT; };
+		04519FE31A365BD80066D9E1 /* Person.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Person.h; path = CandyShop/Person.h; sourceTree = SOURCE_ROOT; };
+		04519FE41A365BD80066D9E1 /* Queue.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = Queue.cpp; path = CandyShop/Queue.cpp; sourceTree = SOURCE_ROOT; };
+		04519FE51A365BD80066D9E1 /* Queue.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Queue.h; path = CandyShop/Queue.h; sourceTree = SOURCE_ROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -59,7 +59,7 @@
 		044769121A36562E0036C95A = {
 			isa = PBXGroup;
 			children = (
-				0447691D1A36562E0036C95A /* candyShopFinal */,
+				0447691D1A36562E0036C95A /* CandyShop */,
 				0447691C1A36562E0036C95A /* Products */,
 			);
 			sourceTree = "<group>";
@@ -72,24 +72,25 @@
 			name = Products;
 			sourceTree = "<group>";
 		};
-		0447691D1A36562E0036C95A /* candyShopFinal */ = {
+		0447691D1A36562E0036C95A /* CandyShop */ = {
 			isa = PBXGroup;
 			children = (
-				047CEBAA1A36571E000BAE9B /* Node.h */,
-				047CEBAB1A36571E000BAE9B /* Person.h */,
-				047CEBAC1A36571E000BAE9B /* Queue.cpp */,
-				047CEBAD1A36571E000BAE9B /* Queue.h */,
-				044769251A36569E0036C95A /* ArrayList.cpp */,
-				044769261A36569E0036C95A /* ArrayList.h */,
-				044769271A36569E0036C95A /* Candy.cpp */,
-				044769281A36569E0036C95A /* Candy.h */,
-				044769291A36569E0036C95A /* CandyShop.cpp */,
-				0447692A1A36569E0036C95A /* main.cpp */,
-				0447692B1A36569E0036C95A /* CandyShop.h */,
-				0447692C1A36569E0036C95A /* List.h */,
-				0447692D1A36569E0036C95A /* Node.cpp */,
-				0447692E1A36569E0036C95A /* ReadMe.txt */,
+				04519FD81A365BD80066D9E1 /* ArrayList.cpp */,
+				04519FD91A365BD80066D9E1 /* ArrayList.h */,
+				04519FDA1A365BD80066D9E1 /* Candy.cpp */,
+				04519FDB1A365BD80066D9E1 /* Candy.h */,
+				04519FDC1A365BD80066D9E1 /* CandyShop.cpp */,
+				04519FDD1A365BD80066D9E1 /* CandyShop.h */,
+				04519FDE1A365BD80066D9E1 /* List.h */,
+				04519FDF1A365BD80066D9E1 /* main.cpp */,
+				04519FE01A365BD80066D9E1 /* Node.cpp */,
+				04519FE11A365BD80066D9E1 /* Node.h */,
+				04519FE21A365BD80066D9E1 /* ReadMe.txt */,
+				04519FE31A365BD80066D9E1 /* Person.h */,
+				04519FE41A365BD80066D9E1 /* Queue.cpp */,
+				04519FE51A365BD80066D9E1 /* Queue.h */,
 			);
+			name = CandyShop;
 			path = candyShopFinal;
 			sourceTree = "<group>";
 		};
@@ -149,12 +150,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				0447692F1A36569E0036C95A /* ArrayList.cpp in Sources */,
-				044769301A36569E0036C95A /* Candy.cpp in Sources */,
-				044769321A36569E0036C95A /* main.cpp in Sources */,
-				047CEBAE1A36571E000BAE9B /* Queue.cpp in Sources */,
-				044769311A36569E0036C95A /* CandyShop.cpp in Sources */,
-				044769331A36569E0036C95A /* Node.cpp in Sources */,
+				04519FE71A365BD80066D9E1 /* Candy.cpp in Sources */,
+				04519FE81A365BD80066D9E1 /* CandyShop.cpp in Sources */,
+				04519FEB1A365BD80066D9E1 /* Queue.cpp in Sources */,
+				04519FEA1A365BD80066D9E1 /* Node.cpp in Sources */,
+				04519FE61A365BD80066D9E1 /* ArrayList.cpp in Sources */,
+				04519FE91A365BD80066D9E1 /* main.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
