@@ -30,6 +30,14 @@ Queue Candy::getWaitlist(){
 	return waitList;
 }
 
+void Candy::deliverToWaitlist(){
+	for (int i = 0; i < waitList.length(); i++){
+		cout << "Name: " << waitList.getStart() << " -- Candy: " <<name << endl;
+		waitList.removeStart();
+		quantity--;
+	}
+}
+
 void Candy::add(int quantity){
 	this->quantity += quantity;
 }

@@ -28,6 +28,7 @@ public:
     int getQuantity();
     int getWanted();
 	Queue getWaitlist();
+	void deliverToWaitlist();
     void setName(string name);
     void setQuantity(int quantity);
     void setWanted(int wantedOnShelf);

@@ -40,6 +40,34 @@ void addCandyToOrder(string filename, Candy* candy){
 	}
 }
 
+void CandyShop::delivery(){
+	string filename = "";
+	{//parseFile
+		ifstream infile(filename);
+		if (infile){
+			while (infile){
+				string strInput;
+				getline(infile, strInput);
+				//parseLine
+				if (strInput.length() > 0){
+					stringstream splitter(strInput);
+					string name, quantity;
+					getline(splitter, name, ',');
+					getline(splitter, quantity, ',');
+					cout << "name:" << name << "\tnumber:" << quantity << endl;
+					Candy* candy = getCandy(name);
+					candy->setQuantity(candy->getQuantity() + stoi(quantity));
+					//some quantity goes to waitlist
+					candy->deliverToWaitlist();
+					//some goes on the shelf
+				}
+			}
+		}else {
+			cerr << "File not found." << endl;
+		}
+	}
+}
+
 void CandyShop::order(){
 	string filename = "";
 	for (int i = 0; i < candyList.length(); i++){

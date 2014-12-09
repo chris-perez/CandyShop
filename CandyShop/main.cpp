@@ -172,8 +172,7 @@ int main(int argc, const char * argv[])
 						cin >> name;
 						inquireCandy->addToWaitlist(name);
 						cout << "Thank you." << endl;
-					}
-					else{
+					}else{
 						cout << "Sorry for the inconvenience." << endl;
 					}
 				}
