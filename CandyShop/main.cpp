@@ -16,23 +16,60 @@ using namespace std;
 #include <stdio.h>
 #include "CandyShop.h"
 
+void parseLine(string line){
+	if (line.length() > 0){
+		stringstream splitter(line);
+		string name, number, words;
+		getline(splitter, name, ',');
+		getline(splitter, number, ',');
+		getline(splitter, words, ',');
+		cout << "name:" << name << "\tnumber:" << number << "\twords:" << words << endl;
+	}
+}
+
+void parseFile(string filename){
+	ifstream infile(filename);
+	if (infile){
+		while (infile){
+			string strInput;
+			getline(infile, strInput);
+			parseLine(strInput);
+		}
+	}
+	else {
+		cerr << "File not found." << endl;
+	}
+}
+
+void printToFile(string filename){
+	ofstream outf;
+	outf.open(filename);
+	if (outf){
+		outf << "This is line 1" << endl;
+		outf << "This is line 2" << endl;
+		outf.close();
+	}
+	else {// Print an error and exit
+		cerr << "Can't write to file" << endl;
+	}
+
+}
+
+
+
 int main(int argc, const char * argv[])
 {
-    //parseFile("testFile.txt");
-    //printToFile("testOutput.txt");
+    printToFile("testOutput.txt");
+	parseFile("testOutput.txt");
     
 	CandyShop* myShop = new CandyShop();
 	bool running = true;
 	string x = "";
-	cout << "Enter H for a list of Commands: ";
-	cin >> x;
+	cout << "Keys:" << endl << "I-inquire" << endl << "L-list" << endl << "A-add" << endl << "M-modify" << endl << "O-order" << endl << "D-delivery" << endl << "R-return" << endl << "S-sell" << endl << "Q-quit" << endl << "H-help" << endl;
+
 
 	while (running)
 	{
-		if (x == "h" || x == "H")
-		{
-			cout << "Keys:" << endl << "I-inquire" << endl << "L-list" << endl << "A-add" << endl << "M-modify" << endl << "O-order" << endl << "D-delivery" << endl << "R-return" << endl << "S-sell" << endl << "Q-quit" << endl;
-		}
 		cout << "Enter a new command: ";
 		cin >> x;
 		//inquire
@@ -47,17 +84,20 @@ int main(int argc, const char * argv[])
 			else {
 				cout << "Candy not found in store." << endl;
 			}
-			continue;
+		}
+		//help
+		else if (x == "h" || x == "H")
+		{
+			cout << "Keys:" << endl << "I-inquire" << endl << "L-list" << endl << "A-add" << endl << "M-modify" << endl << "O-order" << endl << "D-delivery" << endl << "R-return" << endl << "S-sell" << endl << "Q-quit" << endl;
 		}
 		//list
-		if (x == "l" || x == "L")
+		else if (x == "l" || x == "L")
 		{
 			//THIS IS MAYBE ALPHABETIZED
 			myShop->print();
-			continue;
 		}
 		//add
-		if (x == "a" || x == "A")
+		else if (x == "a" || x == "A")
 		{
 			string name;
 			cout << "Enter name of candy: ";
@@ -74,9 +114,8 @@ int main(int argc, const char * argv[])
 				myShop->addCandy(new Candy(name, 0, wanted));
 				cout << name << " added." << endl;
 			}
-			continue;
 		}
-		if (x == "m" || x == "M")
+		else if (x == "m" || x == "M")
 		{
 			string name;
 			int x;
@@ -94,24 +133,21 @@ int main(int argc, const char * argv[])
 			}
 			continue;
 		}
-		if (x == "o" || x == "O")
+		else if (x == "o" || x == "O")
 		{
 			myShop->order();
 			cout << "order" << endl;
-			continue;
 		}
-		if (x == "d" || x == "D")
+		else if (x == "d" || x == "D")
 		{
 			cout << "delivery" << endl;
-			continue;
 		}
-		if (x == "r" || x == "R")
+		else if (x == "r" || x == "R")
 		{
 			cout << "return" << endl;
-			continue;
 		}
 		//sell
-		if (x == "s" || x == "S")
+		else if (x == "s" || x == "S")
 		{
 			string name;
 			cout << "What candy would you like to sell?" << endl;
@@ -144,53 +180,18 @@ int main(int argc, const char * argv[])
 			else{
 				cout << "Error: Candy not found." << endl;
 			}
-			continue;
 		}
-		if (x == "q" || x == "Q")
+		else if (x == "q" || x == "Q")
 		{
 			cout << "Goodbye!" << endl;
 			running = false;
-			continue;
 		}
-		return 0;
+		else {
+			cout << "Error: invalid command" << endl;
+		}
 	}
+	return 0;
 }
 
-void parseLine(string line){
-    if (line.length() > 0){
-        stringstream splitter (line);
-        string name, number, words;
-        getline(splitter, name, ',');
-        getline(splitter, number, ',');
-        getline(splitter, words, ',');
-        cout << "name:" << name << "\tnumber:" << number << "\twords:"<< words << endl;
-    }
-}
 
-void parseFile(string filename){
-    ifstream infile(filename);
-    if (infile){
-        while (infile){
-            string strInput;
-            getline(infile, strInput);
-            parseLine(strInput);
-        }
-    }
-    else {
-        cerr << "File not found." << endl;
-    }
-}
-
-void printToFile(string filename){
-    ofstream outf(filename);
-    if (outf){
-        outf << "This is line 1" << endl;
-        outf << "This is line 2" << endl;
-        outf.close();
-    }
-    else {// Print an error and exit
-        cerr << "Can't write to file" << endl;
-    }
-    
-}
 
