@@ -2,8 +2,10 @@
 //  ArrayList.h
 //
 //  Authors: Chris Perez, Noah Zheutlin, Kelly Sadwin, and Shelby Cohen
+//  Last-Modified-Date: 12/10/2014
 //
-//
+// Contains an array with various methods for manipulating the array.
+
 
 #ifndef __List__ArrayList__
 #define __List__ArrayList__
