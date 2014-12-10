@@ -46,6 +46,8 @@ public:
 	void list();
 
 	void help();
+    
+    void returnCandy();
 
 	void quit();
 
