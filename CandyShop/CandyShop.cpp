@@ -86,10 +86,10 @@ void CandyShop::save(){
 	ofstream outf;
 	outf.open(filename);
 	if (outf){
-		for (int i = 0; i < candyList.length; i++){
+		for (int i = 0; i < candyList.length(); i++){
 			outf << candyList.get(i)->getName() << ", " << candyList.get(i)->getQuantity() << ", " << candyList.get(i)->getWanted();
 			Queue* waitlist = new Queue(candyList.get(i)->getWaitlist());
-			while (waitlist->length > 1){
+			while (waitlist->length() > 1){
 				outf << waitlist->getStart() << ", ";
 				waitlist->removeStart();
 			}
@@ -120,7 +120,7 @@ void CandyShop::load(){
 				candyList.addToEnd(new Candy(name, stoi(quantity), stoi(wanted)));
 				while (strInput.length() > 0){
 					getline(splitter, waitlistName, ',');
-					candyList.get(candyList.length-1)->addToWaitlist(waitlistName);
+					candyList.get(candyList.length()-1)->addToWaitlist(waitlistName);
 				}
 				cout << "name:" << name << "\tnumber:" << quantity << "\twords:" << wanted << endl;
 			}
