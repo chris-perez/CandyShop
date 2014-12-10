@@ -2,9 +2,9 @@
 //  CandyShop.h
 //  CandyShopProject
 //
-//  Created by Noah on 11/10/14.
-//  Copyright (c) 2014 Noah. All rights reserved.
+// Authors: Chris Perez, Noah Zheutlin, Kelly Sadwin, and Shelby Cohen
 //
+// Last-Modified-Date: 12/10/2014
 
 #ifndef CandyShopProject_CandyShop_h
 #define CandyShopProject_CandyShop_h
@@ -44,10 +44,10 @@ public:
 
 	//print out sorted list
 	void list();
-
-	void help();
     
     void returnCandy();
+
+	void help();
 
 	void quit();
 

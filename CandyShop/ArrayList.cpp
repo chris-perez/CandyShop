@@ -1,6 +1,10 @@
-//Author: Chris Perez
-//Last-Modified-Date: 11/3/2014
-//Contains an array with various methods for manipulating the array.
+//
+// ArrayList.cpp
+//
+// Authors: Chris Perez, Noah Zheutlin, Kelly Sadwin, and Shelby Cohen
+// Last-Modified-Date: 12/10/2014
+//
+// Contains an array with various methods for manipulating the array.
 
 #include "ArrayList.h"
 #include <time.h>
@@ -13,9 +17,7 @@ ArrayList::ArrayList(){
 // O(1)
 ArrayList::~ArrayList(){
 	long startTime = clock();
-
 	delete[] arr;
-
 	ticks += clock() - startTime;
 }
 
@@ -54,13 +56,20 @@ const Data ArrayList::getEnd(){
 // O(1)
 Data ArrayList::removeEnd(){
 	long startTime = clock();
-
 	Data temp = arr[numItems-1];
 	arr[numItems - 1] = nullptr;
 	numItems--;
+<<<<<<< HEAD
+    ticks += clock() - startTime;
 	return temp;
 
-	ticks += clock() - startTime;
+=======
+    
+    ticks += clock() - startTime;
+	return temp;
+
+	
+>>>>>>> FETCH_HEAD
 }
 
 // O(1)
@@ -122,7 +131,6 @@ int ArrayList::searchForInsert(string toFind, int len, int currIdx) {
 	}
 }
 
-//returns true or false to indicate whether or not it was successful
 bool ArrayList::insert(Data toAdd){
 	if (numItems == 0) {
 		arr[0] = toAdd;
@@ -165,7 +173,6 @@ int ArrayList::binarySearch(string toFind, int len, Data start) {
 	}
 }
 
-//returns the index of the desired item, or -1 if not found
 int ArrayList::binarySearch(string toFind) {
 	if (numItems == 0) {
 		return -1;

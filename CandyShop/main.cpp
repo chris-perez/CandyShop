@@ -2,9 +2,11 @@
 //  main.cpp
 //  CandyShopProject
 //
-//  Created by Noah on 11/10/14.
-//  Copyright (c) 2014 Noah. All rights reserved.
+// Authors: Chris Perez, Noah Zheutlin, Kelly Sadwin, and Shelby Cohen
 //
+// Last-Modified-Date: 12/10/2014
+//
+// Allows user to type commands and focuses on file input and output
 //#include "stdafx.h"
 
 #include <iostream>
@@ -44,16 +46,19 @@ void printToFile(string filename){
 	ofstream outf;
 	outf.open(filename);
 	if (outf){
-		outf << "This is line 1" << endl;
-		outf << "This is line 2" << endl;
+		//outf << "This is line 1" << endl;
+		//outf << "This is line 2" << endl;
 		outf.close();
-	}else {// Print an error and exit
+	}else {
+        // Print an error and exit
 		cerr << "Can't write to file" << endl;
 	}
 }
 
 int main(int argc, const char * argv[])
 {
+    //files get created in visual studio
+    //need to have separate folder with files when using Xcode
     printToFile("testOutput.txt");
 	parseFile("testOutput.txt");
     
@@ -61,7 +66,7 @@ int main(int argc, const char * argv[])
 	bool running = true;
 	myShop->load();
 	string x = "";
-	cout << "Keys:" << endl << "I-inquire" << endl << "L-list" << endl << "A-add" << endl << "M-modify" << endl << "O-order" << endl << "D-delivery" << endl << "R-return" << endl << "S-sell" << endl << "Q-quit" << endl << "H-help" << endl;
+    cout << "Keys:" << endl << "I-inquire" << endl << "L-list" << endl << "A-add" << endl << "M-modify" << endl << "O-order" << endl << "D-delivery" << endl << "R-return" << endl << "S-sell" << endl << "Q-quit" << endl << "H-help"<<endl;
 
 
 	while (running)
@@ -89,7 +94,6 @@ int main(int argc, const char * argv[])
 		//list
 		else if (x == "l" || x == "L")
 		{
-			//THIS IS ALPHABETIZED
 			myShop->print();
 		}
 		//add
@@ -108,7 +112,7 @@ int main(int argc, const char * argv[])
 				cout << "How many of " << name << " would you like on shelf? Enter number: ";
 				cin >> wanted;
 				myShop->addCandy(new Candy(name, 0, wanted));
-				cout << name << " added." << endl;
+				cout << "The candy " << name << " has been added." << endl;
 			}
 		}
 		else if (x == "m" || x == "M")
@@ -132,30 +136,52 @@ int main(int argc, const char * argv[])
 		else if (x == "o" || x == "O")
 		{
 			myShop->order();
-			cout << "order" << endl;
+            
+			cout << " have been ordered" << endl;
 		}
 		else if (x == "d" || x == "D")
 		{
 			//read candy name in file, find it in list, update have values accordingly
-			myShop->delivery();
+<<<<<<< HEAD
+            myShop->delivery();
 			cout << "delivery" << endl;
+=======
+			myShop->delivery();
+			cout << "Your delivery succeeded" << endl;
+>>>>>>> FETCH_HEAD
 		}
 		else if (x == "r" || x == "R")
 		{
 			//go through candies linearly, compare want and have values, add a return order to file for excessive numbers of candies
+<<<<<<< HEAD
+            //if have value>want value
+            //have==want
+            myShop->returnCandy();
 			cout << "return" << endl;
+=======
+            myShop->returnCandy();
+            cout << "Candy has been returned" << endl;
+>>>>>>> FETCH_HEAD
 		}
 		//sell
 		else if (x == "s" || x == "S")
 		{
 			string name;
+<<<<<<< HEAD
 			cout << "What candy would you like to sell?: ";
+=======
+			cout << "What candy would you like to sell? : ";
+>>>>>>> origin/master
 			cin >> name;
 			Candy* inquireCandy = myShop->getCandy(name);
 
 			if (inquireCandy != nullptr){
 				int quantity;
+<<<<<<< HEAD
 				cout << "Quantity?: " << endl;
+=======
+				cout << "Enter the quantity of "<< name << " that you would like to sell: ";
+>>>>>>> origin/master
 				cin >> quantity;
 				if (inquireCandy->sell(quantity)){
 					cout << "Enjoy your candy." << endl;
@@ -167,7 +193,7 @@ int main(int argc, const char * argv[])
 					cout << "Would you like us to add you to the waitlist for this candy? (y/n)" << endl;
 					cin >> answer;
 					if (answer == "y" || answer == "Y"){
-						cout << "What is your name?" << endl;
+						cout << "Please enter your name: ";
 						cin >> name;
 						inquireCandy->addToWaitlist(name);
 						cout << "Thank you." << endl;
