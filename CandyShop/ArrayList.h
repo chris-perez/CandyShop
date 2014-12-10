@@ -2,7 +2,7 @@
 //  ArrayList.h
 //  List
 //
-//  Created by Toby Dragon on 10/9/14.
+// Authors: Chris Perez, Noah Zheutlin, Kelly Sadwin, and Shelby Cohen
 //  Copyright (c) 2014 Toby Dragon. All rights reserved.
 //
 

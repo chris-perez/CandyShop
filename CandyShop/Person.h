@@ -1,3 +1,9 @@
+// Person.h
+// CandyShopProject
+//
+// Authors: Chris Perez, Noah Zheutlin, Kelly Sadwin, and Shelby Cohen
+// Last-Modified-Date: 12/10/2014
+
 
 #ifndef __CandyShopProject__Person__
 #define __CandyShopProject__Person__

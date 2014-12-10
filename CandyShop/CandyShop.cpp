@@ -1,8 +1,10 @@
-
 //
 //  CandyShop.cpp
 //  CandyShopProject
 //
+// Authors: Chris Perez, Noah Zheutlin, Kelly Sadwin, and Shelby Cohen
+//
+// Last-Modified-Date: 12/10/2014
 
 #include "CandyShop.h"
 #include <iostream>
