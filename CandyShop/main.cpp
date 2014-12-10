@@ -137,13 +137,14 @@ int main(int argc, const char * argv[])
 		else if (x == "o" || x == "O")
 		{
 			myShop->order();
-			cout << "order" << endl;
+            
+			cout << "Your order went through" << endl;
 		}
 		else if (x == "d" || x == "D")
 		{
 			//read candy name in file, find it in list, update have values accordingly
 			myShop->delivery();
-			cout << "delivery" << endl;
+			cout << "Your delivery succeeded" << endl;
 		}
 		else if (x == "r" || x == "R")
 		{
