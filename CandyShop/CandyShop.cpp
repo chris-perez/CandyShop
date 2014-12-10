@@ -41,7 +41,7 @@ void addCandyToOrder(string filename, Candy* candy){
 }
 
 void CandyShop::delivery(){
-	string filename = "";
+	string filename = "delivery.txt";
 	{//parseFile
 		ifstream infile(filename);
 		if (infile){
@@ -69,7 +69,7 @@ void CandyShop::delivery(){
 }
 
 void CandyShop::order(){
-	string filename = "";
+	string filename = "delivery.txt";
 	for (int i = 0; i < candyList.length(); i++){
 		if (candyList.get(i)->getQuantity() < candyList.get(i)->getWanted()){
 			addCandyToOrder(filename, candyList.get(i));
@@ -79,4 +79,54 @@ void CandyShop::order(){
 
 void CandyShop::print() {
 	candyList.printList();
+}
+
+void CandyShop::save(){
+	string filename = "save.txt";
+	ofstream outf;
+	outf.open(filename);
+	if (outf){
+		for (int i = 0; i < candyList.length; i++){
+			outf << candyList.get(i)->getName() << ", " << candyList.get(i)->getQuantity() << ", " << candyList.get(i)->getWanted();
+			Queue* waitlist = new Queue(candyList.get(i)->getWaitlist());
+			while (waitlist->length > 1){
+				outf << waitlist->getStart() << ", ";
+				waitlist->removeStart();
+			}
+			outf << waitlist->getStart() << endl;
+			waitlist->removeStart();
+			
+		}
+		outf.close();
+	}
+	else {// Print an error and exit
+		cerr << "Can't write to file" << endl;
+	}
+}
+
+void CandyShop::load(){
+	string filename = "save.txt";
+	ifstream infile(filename);
+	if (infile){
+		while (infile){
+			string strInput;
+			getline(infile, strInput);
+			if (strInput.length() > 0){
+				stringstream splitter(strInput);
+				string name, quantity, wanted, waitlistName;
+				getline(splitter, name, ',');
+				getline(splitter, quantity, ',');
+				getline(splitter, wanted, ',');
+				candyList.addToEnd(new Candy(name, stoi(quantity), stoi(wanted)));
+				while (strInput.length() > 0){
+					getline(splitter, waitlistName, ',');
+					candyList.get(candyList.length-1)->addToWaitlist(waitlistName);
+				}
+				cout << "name:" << name << "\tnumber:" << quantity << "\twords:" << wanted << endl;
+			}
+		}
+	}
+	else {
+		cerr << "File not found." << endl;
+	}
 }

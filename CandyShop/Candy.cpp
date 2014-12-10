@@ -50,7 +50,6 @@ bool Candy::sell(int quantity){
 	else{
 		return false;
 	}
-	
 }
 
 void Candy::addToWaitlist(string personName) {
