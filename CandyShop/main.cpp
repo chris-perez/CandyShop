@@ -113,7 +113,7 @@ int main(int argc, const char * argv[])
 				cout << "How many of " << name << " would you like on shelf? Enter number: ";
 				cin >> wanted;
 				myShop->addCandy(new Candy(name, 0, wanted));
-				cout << name << " added." << endl;
+				cout << "The candy " << name << " has been added." << endl;
 			}
 		}
 		else if (x == "m" || x == "M")
@@ -138,7 +138,7 @@ int main(int argc, const char * argv[])
 		{
 			myShop->order();
             
-			cout << "Your order went through" << endl;
+			cout << " have been ordered" << endl;
 		}
 		else if (x == "d" || x == "D")
 		{
@@ -149,19 +149,20 @@ int main(int argc, const char * argv[])
 		else if (x == "r" || x == "R")
 		{
 			//go through candies linearly, compare want and have values, add a return order to file for excessive numbers of candies
-			cout << "return" << endl;
+            myShop->returnCandy();
+            cout << "Candy has been returned" << endl;
 		}
 		//sell
 		else if (x == "s" || x == "S")
 		{
 			string name;
-			cout << "What candy would you like to sell?" << endl;
+			cout << "What candy would you like to sell? : ";
 			cin >> name;
 			Candy* inquireCandy = myShop->getCandy(name);
 
 			if (inquireCandy != nullptr){
 				int quantity;
-				cout << "Quantity?" << endl;
+				cout << "Enter the quantity of "<< name << " that you would like to sell: ";
 				cin >> quantity;
 				if (inquireCandy->sell(quantity)){
 					cout << "Enjoy your candy." << endl;

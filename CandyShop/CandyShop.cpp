@@ -59,6 +59,7 @@ void CandyShop::returnCandy(){
     for (int i = 0; i < candyList.length(); i++){
         if (candyList.get(i)->getQuantity() > candyList.get(i)->getWanted()){
             removeCandyFromOrder(filename, candyList.get(i));
+            candyList.get(i)->setQuantity(candyList.get(i)->getWanted());
         }
     }
 }
@@ -96,6 +97,7 @@ void CandyShop::order(){
 	for (int i = 0; i < candyList.length(); i++){
 		if (candyList.get(i)->getQuantity() < candyList.get(i)->getWanted()){
 			addCandyToOrder(filename, candyList.get(i));
+            cout << candyList.get(i)->getWanted() << " of " << candyList.get(i)->getName();
 		}
 	}
 }
