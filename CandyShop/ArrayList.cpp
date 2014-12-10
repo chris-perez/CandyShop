@@ -54,13 +54,12 @@ const Data ArrayList::getEnd(){
 // O(1)
 Data ArrayList::removeEnd(){
 	long startTime = clock();
-
 	Data temp = arr[numItems-1];
 	arr[numItems - 1] = nullptr;
 	numItems--;
+    ticks += clock() - startTime;
 	return temp;
 
-	ticks += clock() - startTime;
 }
 
 // O(1)

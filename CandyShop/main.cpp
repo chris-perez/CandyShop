@@ -63,7 +63,7 @@ int main(int argc, const char * argv[])
 	CandyShop* myShop = new CandyShop();
 	bool running = true;
 	string x = "";
-	cout << "Keys:" << endl << "I-inquire" << endl << "L-list" << endl << "A-add" << endl << "M-modify" << endl << "O-order" << endl << "D-delivery" << endl << "R-return" << endl << "S-sell" << endl << "Q-quit" << endl << "H-help" << endl;
+    cout << "Keys:" << endl << "I-inquire" << endl << "L-list" << endl << "A-add" << endl << "M-modify" << endl << "O-order" << endl << "D-delivery" << endl << "R-return" << endl << "S-sell" << endl << "Q-quit" << endl << "H-help";
 
 
 	while (running)
@@ -144,6 +144,9 @@ int main(int argc, const char * argv[])
 		else if (x == "r" || x == "R")
 		{
 			//go through candies linearly, compare want and have values, add a return order to file for excessive numbers of candies
+            //if have value>want value
+            //have==want
+            
 			cout << "return" << endl;
 		}
 		//sell
