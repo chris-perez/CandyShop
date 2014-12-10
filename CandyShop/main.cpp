@@ -53,8 +53,6 @@ void printToFile(string filename){
 	}
 }
 
-
-
 int main(int argc, const char * argv[])
 {
     printToFile("testOutput.txt");
