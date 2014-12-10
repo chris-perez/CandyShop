@@ -61,7 +61,7 @@ int main(int argc, const char * argv[])
 	bool running = true;
 	myShop->load();
 	string x = "";
-    cout << "Keys:" << endl << "I-inquire" << endl << "L-list" << endl << "A-add" << endl << "M-modify" << endl << "O-order" << endl << "D-delivery" << endl << "R-return" << endl << "S-sell" << endl << "Q-quit" << endl << "H-help";
+    cout << "Keys:" << endl << "I-inquire" << endl << "L-list" << endl << "A-add" << endl << "M-modify" << endl << "O-order" << endl << "D-delivery" << endl << "R-return" << endl << "S-sell" << endl << "Q-quit" << endl << "H-help"<<endl;
 
 
 	while (running)

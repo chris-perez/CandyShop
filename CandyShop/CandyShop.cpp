@@ -39,6 +39,26 @@ void addCandyToOrder(string filename, Candy* candy){
 		cerr << "Can't write to file" << endl;
 	}
 }
+void removeCandyFromOrder(string filename, Candy* candy){
+    ofstream outf;
+    outf.open(filename);
+    if (outf){
+        outf << candy->getName() << ", " << candy->getQuantity() - candy->getWanted() << endl;
+        outf.close();
+    }else {// Print an error and exit
+        cerr << "Can't write to file" << endl;
+    }
+}
+
+void CandyShop::returnCandy(){
+    string filename = "returnInvoice.txt";
+    for (int i = 0; i < candyList.length(); i++){
+        if (candyList.get(i)->getQuantity() > candyList.get(i)->getWanted()){
+            removeCandyFromOrder(filename, candyList.get(i));
+            candyList.get(i)->setQuantity(candyList.get(i)->getWanted());
+        }
+    }
+}
 
 void CandyShop::delivery(){
 	string filename = "delivery.txt";
@@ -54,7 +74,7 @@ void CandyShop::delivery(){
 					string name, quantity;
 					getline(splitter, name, ',');
 					getline(splitter, quantity, ',');
-					cout << "name:" << name << "\tnumber:" << quantity << endl;
+					cout << "name:" << name << "/tnumber:" << quantity << endl;
 					Candy* candy = getCandy(name);
 					candy->setQuantity(candy->getQuantity() + stoi(quantity));
 					//some quantity goes to waitlist
@@ -103,27 +123,6 @@ void CandyShop::save(){
 		cerr << "Can't write to file" << endl;
 	}
 }
-
-void removeCandyFromOrder(string filename, Candy* candy){
-    ofstream outf;
-    outf.open(filename);
-    if (outf){
-        outf << candy->getName() << ", " << candy->getQuantity() - candy->getWanted() << endl;
-        outf.close();
-    }else {// Print an error and exit
-        cerr << "Can't write to file" << endl;
-    }
-}
-
-void CandyShop::returnCandy(){
-    string filename = "returnInvoice.txt";
-    for (int i = 0; i < candyList.length(); i++){
-        if (candyList.get(i)->getQuantity() > candyList.get(i)->getWanted()){
-            removeCandyFromOrder(filename, candyList.get(i));
-        }
-    }
-}
-
 
 void CandyShop::load(){
 	string filename = "save.txt";
