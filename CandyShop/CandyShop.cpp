@@ -78,7 +78,7 @@ void CandyShop::delivery(){
 					string name, quantity;
 					getline(splitter, name, ',');
 					getline(splitter, quantity, ',');
-					cout << "name:" << name << "\tnumber:" << quantity << endl;
+					cout << "name: " << name << " \tnumber:" << quantity << endl;
 					Candy* candy = getCandy(name);
 					candy->setQuantity(candy->getQuantity() + stoi(quantity));
 					//some quantity goes to waitlist
@@ -147,7 +147,7 @@ void CandyShop::load(){
 					getline(splitter, waitlistName, ',');
 					candyList.get(candyList.length()-1)->addToWaitlist(waitlistName);
 				}
-				cout << "name:" << name << "\tnumber:" << quantity << "\twords:" << wanted << endl;
+				cout << "name: " << name << "\tnumber:" << quantity << "\twords:" << wanted << endl;
 			}
 		}
 	}
