@@ -125,8 +125,6 @@ void CandyShop::returnCandy(){
 }
 
 
-
-
 void CandyShop::load(){
 	string filename = "save.txt";
 	ifstream infile(filename);

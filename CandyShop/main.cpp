@@ -35,8 +35,7 @@ void parseFile(string filename){
 			getline(infile, strInput);
 			parseLine(strInput);
 		}
-	}
-	else {
+	}else {
 		cerr << "File not found." << endl;
 	}
 }
@@ -60,6 +59,7 @@ int main(int argc, const char * argv[])
     
 	CandyShop* myShop = new CandyShop();
 	bool running = true;
+	myShop->load();
 	string x = "";
     cout << "Keys:" << endl << "I-inquire" << endl << "L-list" << endl << "A-add" << endl << "M-modify" << endl << "O-order" << endl << "D-delivery" << endl << "R-return" << endl << "S-sell" << endl << "Q-quit" << endl << "H-help";
 
@@ -184,6 +184,7 @@ int main(int argc, const char * argv[])
 		}
 		else if (x == "q" || x == "Q")
 		{
+			myShop->save();
 			cout << "Goodbye!" << endl;
 			running = false;
 		}
