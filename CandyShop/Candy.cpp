@@ -87,6 +87,6 @@ void Candy::toPrint() {
 }
 
 ostream& operator<< (ostream &out, Candy &candy){
-	out << candy.name <<": {" << endl << "\tCurrent stock: " << candy.quantity <<", "<< endl << "\tWanted on shelf: " << candy.wantedOnShelf <<", " << endl << "\tWait list:" << candy.waitList << endl<<"\t}\n";
+	out << candy.name <<":" << endl << "\tCurrent stock: " << candy.quantity << endl << "\tWanted on shelf: " << candy.wantedOnShelf << endl << "\tWait list:" << candy.waitList << endl<<"\t\n";
 	return out;
 }

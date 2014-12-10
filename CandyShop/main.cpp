@@ -165,7 +165,7 @@ int main(int argc, const char * argv[])
 					cout << "The candy you asked for is out of stock." << endl;
 					cout << "Would you like us to add you to the waitlist for this candy? (y/n)" << endl;
 					cin >> answer;
-					if (answer == "y"){
+					if (answer == "y" || answer == "Y"){
 						cout << "What is your name?" << endl;
 						cin >> name;
 						inquireCandy->addToWaitlist(name);
