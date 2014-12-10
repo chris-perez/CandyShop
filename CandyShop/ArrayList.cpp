@@ -88,9 +88,10 @@ void ArrayList::addToEnd(Data toAdd){
 
 // O(n)
 void ArrayList::printList(){
+	cout << "Kelly is testing printList" << endl;
 	if (numItems > 0){
 		for (int i = 0; i < numItems; i++){
-			cout << *arr[i] << endl;
+			arr[i]->toPrint();
 		}
 	}
 	else{

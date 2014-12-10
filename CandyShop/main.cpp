@@ -149,13 +149,13 @@ int main(int argc, const char * argv[])
 		else if (x == "s" || x == "S")
 		{
 			string name;
-			cout << "What candy would you like to sell?" << endl;
+			cout << "What candy would you like to sell?: ";
 			cin >> name;
 			Candy* inquireCandy = myShop->getCandy(name);
 
 			if (inquireCandy != nullptr){
 				int quantity;
-				cout << "Quantity?" << endl;
+				cout << "Quantity?: " << endl;
 				cin >> quantity;
 				if (inquireCandy->sell(quantity)){
 					cout << "Enjoy your candy." << endl;

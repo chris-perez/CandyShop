@@ -54,16 +54,41 @@ const string Queue::getEnd() {
 	return end->getItem();
 }
 
+string Queue::toString() {
+	cout << "test Queue toString" << endl;
+	string out = "[ ";
+	Node* current = start;
+	cout << "hello?" << endl;
+	if (current != nullptr) {
+		cout << "hello??" << endl;
+		while (current->getNext() != nullptr) {
+			cout << "hi ";
+			out += current->getItem() + ", ";
+			current = current->getNext();
+		}
+		cout << "Outside the while loop" << endl;
+		out += current->getItem() + " ]\n";
+	}
+	else {
+		out += "]";
+	}
+	return out;
+}
+
 ostream& operator<< (ostream &out, Queue &queue){
 	// Since operator<< is a friend, we can access the data members of the class directly.
+	cout << "Kelly is testing the Queue ostream operator" << endl;
 	Node* current = queue.start;
+	cout << "here i am" << endl;
 	out << "[ ";
 	if (current != nullptr) {
+		cout << "Made it into the if statement" << endl;
 		while (current->getNext() != nullptr) {
-			//i will only increment after this line of code is executed
+			cout << "Inside the while loop, ";
 			out << current->getItem() << ", ";
 			current = current->getNext();
 		}
+		cout << "Outside the while loop" << endl;
 		out << current->getItem() << " ]" << endl;
 	}
 	else {

@@ -90,13 +90,15 @@ void CandyShop::delivery(){
 void CandyShop::order(){
 	string filename = "delivery.txt";
 	for (int i = 0; i < candyList.length(); i++){
-		if (candyList.get(i)->getQuantity() < candyList.get(i)->getWanted()){
+		int needed = candyList.get(i)->getWanted() + candyList.get(i)->getWaitlist().length();
+		if (candyList.get(i)->getQuantity() < needed){
 			addCandyToOrder(filename, candyList.get(i));
 		}
 	}
 }
 
 void CandyShop::print() {
+	cout << "Kelly is testing print" << endl;
 	candyList.printList();
 }
 

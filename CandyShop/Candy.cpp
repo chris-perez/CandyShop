@@ -83,10 +83,18 @@ void Candy::setWanted(int wantedOnShelf){
 }
 
 void Candy::toPrint() {
-	cout << name << endl << "Current stock: " << quantity << endl << "Wanted on shelf: " << wantedOnShelf << endl << "Wait list:" << endl << waitList << endl;
+	cout << "test Candy toPrint" << endl;
+	cout << name << endl << "Current stock: " << quantity << endl << "Wanted on shelf: " << wantedOnShelf << endl << "Wait list:" << endl << waitList.toString() << endl;
 }
 
 ostream& operator<< (ostream &out, Candy &candy){
-	out << candy.name <<":" << endl << "\tCurrent stock: " << candy.quantity << endl << "\tWanted on shelf: " << candy.wantedOnShelf << endl << "\tWait list:" << candy.waitList << endl<<"\t\n";
+	cout << "Kelly is testing the Candy ostream operator" << endl;
+	out << candy.name << ":" << endl;
+	cout << "here i am" << endl;
+	out << "\tCurrent stock : " << candy.quantity << endl;
+	cout << "with my ninja clan" << endl;
+	out << "\tWanted on shelf : " << candy.wantedOnShelf << endl;
+	cout << "ninja clan here we stand" << endl;
+	out << "\tWait list : " << candy.waitList << endl << "\t\n";
 	return out;
 }

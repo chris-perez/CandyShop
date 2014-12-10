@@ -31,6 +31,8 @@ public:
 	//O(c)
 	void addToEnd(string toAdd);
 
+	string toString();
+
 	friend ostream& operator<< (ostream &out, Queue &queue);
 };
 
