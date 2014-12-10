@@ -13,7 +13,6 @@
 #include "Queue.h"
 #include <iostream>
 
-
 class Candy{
 private:
 	string name;

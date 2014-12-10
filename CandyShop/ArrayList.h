@@ -16,7 +16,6 @@ using namespace std;
 
 class ArrayList : public List {
 private:
-   //TODO: enter necessary data members here
 	Data* arr;
 	int capacity = 10;
 	int numItems = 0;
@@ -39,7 +38,9 @@ public:
     void addToEnd(Data toAdd);
     void printList();
     
+    //returns the index of the desired item, or -1 if not found
 	int binarySearch(string toFind);
+    //returns true or false to indicate whether or not it was successful
 	bool insert(Data toAdd);
 
     int calcMemInUse();

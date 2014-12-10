@@ -17,9 +17,7 @@ ArrayList::ArrayList(){
 // O(1)
 ArrayList::~ArrayList(){
 	long startTime = clock();
-
 	delete[] arr;
-
 	ticks += clock() - startTime;
 }
 
@@ -125,7 +123,6 @@ int ArrayList::searchForInsert(string toFind, int len, int currIdx) {
 	}
 }
 
-//returns true or false to indicate whether or not it was successful
 bool ArrayList::insert(Data toAdd){
 	if (numItems == 0) {
 		arr[0] = toAdd;
@@ -168,7 +165,6 @@ int ArrayList::binarySearch(string toFind, int len, Data start) {
 	}
 }
 
-//returns the index of the desired item, or -1 if not found
 int ArrayList::binarySearch(string toFind) {
 	if (numItems == 0) {
 		return -1;
