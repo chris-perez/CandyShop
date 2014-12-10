@@ -60,9 +60,11 @@ Data ArrayList::removeEnd(){
 	Data temp = arr[numItems-1];
 	arr[numItems - 1] = nullptr;
 	numItems--;
+    
+    ticks += clock() - startTime;
 	return temp;
 
-	ticks += clock() - startTime;
+	
 }
 
 // O(1)
