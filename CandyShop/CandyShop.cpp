@@ -1,8 +1,12 @@
-
 //
 //  CandyShop.cpp
 //  CandyShopProject
 //
+// Authors: Chris Perez, Noah Zheutlin, Kelly Sadwin, and Shelby Cohen
+//
+// Last-Modified-Date: 12/10/2014
+//
+// Uses CandyShop's data to store individual candies
 
 #include "CandyShop.h"
 #include <iostream>
@@ -74,7 +78,11 @@ void CandyShop::delivery(){
 					string name, quantity;
 					getline(splitter, name, ',');
 					getline(splitter, quantity, ',');
+<<<<<<< HEAD
 					cout << "name:" << name << "/tnumber:" << quantity << endl;
+=======
+					cout << "name: " << name << " \tnumber:" << quantity << endl;
+>>>>>>> FETCH_HEAD
 					Candy* candy = getCandy(name);
 					candy->setQuantity(candy->getQuantity() + stoi(quantity));
 					//some quantity goes to waitlist
@@ -93,6 +101,7 @@ void CandyShop::order(){
 	for (int i = 0; i < candyList.length(); i++){
 		if (candyList.get(i)->getQuantity() < candyList.get(i)->getWanted()){
 			addCandyToOrder(filename, candyList.get(i));
+            cout << candyList.get(i)->getWanted() << " of " << candyList.get(i)->getName();
 		}
 	}
 }
@@ -142,7 +151,7 @@ void CandyShop::load(){
 					getline(splitter, waitlistName, ',');
 					candyList.get(candyList.length()-1)->addToWaitlist(waitlistName);
 				}
-				cout << "name:" << name << "\tnumber:" << quantity << "\twords:" << wanted << endl;
+				cout << "name: " << name << "\tnumber:" << quantity << "\twords:" << wanted << endl;
 			}
 		}
 	}

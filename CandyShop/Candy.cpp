@@ -2,9 +2,11 @@
 //  Candy.cpp
 //  CandyShopProject
 //
-//  Created by Noah on 11/10/14.
-//  Copyright (c) 2014 Noah. All rights reserved.
+//  Authors: Chris Perez, Noah Zheutlin, Kelly Sadwin, and Shelby Cohen
 //
+//  Last-Modified-Date: 12/10/2014
+//
+//  Stores all data for each candy
 
 #include "Candy.h"
 
@@ -87,6 +89,6 @@ void Candy::toPrint() {
 }
 
 ostream& operator<< (ostream &out, Candy &candy){
-	out << candy.name <<": {" << endl << "\tCurrent stock: " << candy.quantity <<", "<< endl << "\tWanted on shelf: " << candy.wantedOnShelf <<", " << endl << "\tWait list:" << candy.waitList << endl<<"\t}\n";
+	out << candy.name <<":" << endl << "\tCurrent stock: " << candy.quantity << endl << "\tWanted on shelf: " << candy.wantedOnShelf << endl << "\tWait list:" << candy.waitList << endl<<"\t\n";
 	return out;
 }

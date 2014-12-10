@@ -1,10 +1,11 @@
 //
 //  ArrayList.h
-//  List
 //
-//  Created by Toby Dragon on 10/9/14.
-//  Copyright (c) 2014 Toby Dragon. All rights reserved.
+//  Authors: Chris Perez, Noah Zheutlin, Kelly Sadwin, and Shelby Cohen
+//  Last-Modified-Date: 12/10/2014
 //
+// Contains an array with various methods for manipulating the array.
+
 
 #ifndef __List__ArrayList__
 #define __List__ArrayList__
@@ -15,7 +16,6 @@ using namespace std;
 
 class ArrayList : public List {
 private:
-   //TODO: enter necessary data members here
 	Data* arr;
 	int capacity = 10;
 	int numItems = 0;
@@ -38,7 +38,9 @@ public:
     void addToEnd(Data toAdd);
     void printList();
     
+    //returns the index of the desired item, or -1 if not found
 	int binarySearch(string toFind);
+    //returns true or false to indicate whether or not it was successful
 	bool insert(Data toAdd);
 
     int calcMemInUse();

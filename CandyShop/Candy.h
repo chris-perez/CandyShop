@@ -2,9 +2,9 @@
 //  Candy.h
 //  CandyShopProject
 //
-//  Created by Noah on 11/10/14.
-//  Copyright (c) 2014 Noah. All rights reserved.
+//  Authors: Chris Perez, Noah Zheutlin, Kelly Sadwin, and Shelby Cohen
 //
+// Last-Modified-Date: 12/10/2014
 
 #ifndef __CandyShopProject__Candy__
 #define __CandyShopProject__Candy__
@@ -12,7 +12,6 @@
 //#include <stdio.h>
 #include "Queue.h"
 #include <iostream>
-
 
 class Candy{
 private:

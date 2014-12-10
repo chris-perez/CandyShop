@@ -1,3 +1,10 @@
+// Queue.cpp
+// CandyShopProject
+//
+// Authors: Chris Perez, Noah Zheutlin, Kelly Sadwin, and Shelby Cohen
+// Last-Modified-Date: 12/10/2014
+//
+// Used to store the waitlist of candies
 
 #include "Queue.h"
 
@@ -57,11 +64,17 @@ const string Queue::getEnd() {
 ostream& operator<< (ostream &out, Queue &queue){
 	// Since operator<< is a friend, we can access the data members of the class directly.
 	Node* current = queue.start;
-	int i = 0;
-	while (current != nullptr) {
-		//i will only increment after this line of code is executed
-		out << "[" << i++ << "] \t" << current->getItem() << "\n";
-		current = current->getNext();
+	out << "[ ";
+	if (current != nullptr) {
+		while (current->getNext() != nullptr) {
+			//i will only increment after this line of code is executed
+			out << current->getItem() << ", ";
+			current = current->getNext();
+		}
+		out << current->getItem() << " ]" << endl;
+	}
+	else {
+		out << "]" << endl;
 	}
 	return out;
 }

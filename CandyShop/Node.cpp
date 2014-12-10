@@ -1,3 +1,10 @@
+// Node.cpp
+// CandyShopProject
+//
+// Authors: Chris Perez, Noah Zheutlin, Kelly Sadwin, and Shelby Cohen
+// Last-Modified-Date: 12/10/2014
+//
+// Used by the Queue class to access items
 
 #include "Node.h"
 
