@@ -2,9 +2,11 @@
 //  Candy.cpp
 //  CandyShopProject
 //
-// Authors: Chris Perez, Noah Zheutlin, Kelly Sadwin, and Shelby Cohen
+//  Authors: Chris Perez, Noah Zheutlin, Kelly Sadwin, and Shelby Cohen
 //
-// Last-Modified-Date: 12/10/2014
+//  Last-Modified-Date: 12/10/2014
+//
+//  Stores all data for each candy
 
 #include "Candy.h"
 

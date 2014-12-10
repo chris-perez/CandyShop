@@ -1,9 +1,8 @@
 //
 //  ArrayList.h
-//  List
 //
-// Authors: Chris Perez, Noah Zheutlin, Kelly Sadwin, and Shelby Cohen
-//  Copyright (c) 2014 Toby Dragon. All rights reserved.
+//  Authors: Chris Perez, Noah Zheutlin, Kelly Sadwin, and Shelby Cohen
+//
 //
 
 #ifndef __List__ArrayList__

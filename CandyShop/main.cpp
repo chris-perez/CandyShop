@@ -5,7 +5,8 @@
 // Authors: Chris Perez, Noah Zheutlin, Kelly Sadwin, and Shelby Cohen
 //
 // Last-Modified-Date: 12/10/2014
-
+//
+// Allows user to type commands and focuses on file input and output
 //#include "stdafx.h"
 
 #include <iostream>
@@ -48,13 +49,16 @@ void printToFile(string filename){
 		//outf << "This is line 1" << endl;
 		//outf << "This is line 2" << endl;
 		outf.close();
-	}else {// Print an error and exit
+	}else {
+        // Print an error and exit
 		cerr << "Can't write to file" << endl;
 	}
 }
 
 int main(int argc, const char * argv[])
 {
+    //files get created in visual studio
+    //need to have separate folder with files when using Xcode
     printToFile("testOutput.txt");
 	parseFile("testOutput.txt");
     

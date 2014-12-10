@@ -3,14 +3,15 @@
 //
 // Authors: Chris Perez, Noah Zheutlin, Kelly Sadwin, and Shelby Cohen
 // Last-Modified-Date: 12/10/2014
+//
+// Used to store the waitlist of candies
+
 
 #ifndef QUEUE_H
 #define QUEUE_H
 
 #include "Node.h"
 #include <iostream>
-//Isn't implementing List.h because some methods of List do not apply to queues (only adds to one end)
-//and because it holds strings, not Data (Candy)
 
 class Queue {
 private:
