@@ -44,6 +44,8 @@ public:
 
 	//print out sorted list
 	void list();
+    
+    void returnCandy();
 
 	void help();
 

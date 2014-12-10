@@ -89,7 +89,6 @@ int main(int argc, const char * argv[])
 		//list
 		else if (x == "l" || x == "L")
 		{
-			//THIS IS ALPHABETIZED
 			myShop->print();
 		}
 		//add
@@ -137,6 +136,7 @@ int main(int argc, const char * argv[])
 		else if (x == "d" || x == "D")
 		{
 			//read candy name in file, find it in list, update have values accordingly
+            myShop->delivery();
 			cout << "delivery" << endl;
 		}
 		else if (x == "r" || x == "R")
@@ -144,7 +144,7 @@ int main(int argc, const char * argv[])
 			//go through candies linearly, compare want and have values, add a return order to file for excessive numbers of candies
             //if have value>want value
             //have==want
-            
+            myShop->returnCandy();
 			cout << "return" << endl;
 		}
 		//sell
