@@ -15,14 +15,18 @@
 
 using namespace std;
 
-CandyShop::CandyShop(ArrayList candyList) {
+CandyShop::CandyShop(ArrayList* candyList) {
 	this->candyList = candyList;
 }
 
+CandyShop::~CandyShop() {
+	delete candyList;
+}
+
 Candy* CandyShop::getCandy(string name){
-	int idx = candyList.binarySearch(name);
+	int idx = candyList->binarySearch(name);
 	if (idx != -1) {
-		return candyList.get(idx);
+		return candyList->get(idx);
 	}
 	else {
 		return nullptr;
@@ -30,7 +34,7 @@ Candy* CandyShop::getCandy(string name){
 }
 
 void CandyShop::addCandy(Candy* candy){
-	candyList.insert(candy);
+	candyList->insert(candy);
 }
 
 void addCandyToOrder(string filename, Candy* candy){
@@ -54,17 +58,21 @@ void removeCandyFromOrder(string filename, Candy* candy){
     }
 }
 
-void CandyShop::returnCandy(){
+bool CandyShop::returnCandy(){
+	bool wasCandyReturned = false;
     string filename = "returnInvoice.txt";
-    for (int i = 0; i < candyList.length(); i++){
-        if (candyList.get(i)->getQuantity() > candyList.get(i)->getWanted()){
-            removeCandyFromOrder(filename, candyList.get(i));
-            candyList.get(i)->setQuantity(candyList.get(i)->getWanted());
+    for (int i = 0; i < candyList->length(); i++){
+        if (candyList->get(i)->getQuantity() > candyList->get(i)->getWanted()){
+            removeCandyFromOrder(filename, candyList->get(i));
+            candyList->get(i)->setQuantity(candyList->get(i)->getWanted());
+			cout << candyList->get(i)->getName() << " returned." << endl;
+			wasCandyReturned = true;
         }
     }
+	return wasCandyReturned;
 }
 
-void CandyShop::delivery(){
+bool CandyShop::delivery(){
 	string filename = "delivery.txt";
 	{//parseFile
 		ifstream infile(filename);
@@ -86,25 +94,29 @@ void CandyShop::delivery(){
 					//some goes on the shelf
 				}
 			}
+			return true;
 		}else {
-			cerr << "File not found." << endl;
+			return false;
 		}
 	}
 }
 
-void CandyShop::order(){
+bool CandyShop::order(){
+	bool wasThereAnOrder = false;
 	string filename = "delivery.txt";
-	for (int i = 0; i < candyList.length(); i++){
-		int needed = candyList.get(i)->getWanted() + candyList.get(i)->getWaitlist()->length();
-		if (candyList.get(i)->getQuantity() < needed){
-			addCandyToOrder(filename, candyList.get(i));
-            cout << candyList.get(i)->getWanted() << " of " << candyList.get(i)->getName();
+	for (int i = 0; i < candyList->length(); i++){
+		int needed = candyList->get(i)->getWanted() + candyList->get(i)->getWaitlist()->length();
+		if (candyList->get(i)->getQuantity() < needed){
+			addCandyToOrder(filename, candyList->get(i));
+			cout << needed - candyList->get(i)->getQuantity() << " of " << candyList->get(i)->getName() << ", ";
+			wasThereAnOrder = true;
 		}
 	}
+	return wasThereAnOrder;
 }
 
 void CandyShop::print() {
-	candyList.printList();
+	candyList->printList();
 }
 
 void CandyShop::save(){
@@ -112,9 +124,9 @@ void CandyShop::save(){
 	ofstream outf;
 	outf.open(filename);
 	if (outf){
-		for (int i = 0; i < candyList.length(); i++){
-			outf << candyList.get(i)->getName() << "," << candyList.get(i)->getQuantity() << "," << candyList.get(i)->getWanted() << ",";
-			Node* current = candyList.get(i)->getWaitlist()->getStartNode();
+		for (int i = 0; i < candyList->length(); i++){
+			outf << candyList->get(i)->getName() << "," << candyList->get(i)->getQuantity() << "," << candyList->get(i)->getWanted() << ",";
+			Node* current = candyList->get(i)->getWaitlist()->getStartNode();
 			if (current != nullptr) {
 				while (current->getNext() != nullptr){
 					outf << current->getItem() << ",";
@@ -144,14 +156,14 @@ void CandyShop::load(){
 					getline(splitter, name, ',');
 					getline(splitter, quantity, ',');
 					getline(splitter, wanted, ',');
-					candyList.insert(new Candy(name, stoi(quantity), stoi(wanted)));
+					candyList->insert(new Candy(name, stoi(quantity), stoi(wanted)));
 					int thistime = 0;
 					int lasttime = -1;
 					while (lasttime != thistime){
 						getline(splitter, waitlistName, ',');
-						candyList.get(candyList.length() - 1)->addToWaitlist(waitlistName);
+						candyList->get(candyList->length() - 1)->addToWaitlist(waitlistName);
 						lasttime = thistime;
-						thistime = candyList.get(candyList.length() - 1)->getWaitlist()->length();
+						thistime = candyList->get(candyList->length() - 1)->getWaitlist()->length();
 					}
 					cout << "name: " << name << "\tnumber:" << quantity << "\twanted on shelf:" << wanted << endl;
 				}

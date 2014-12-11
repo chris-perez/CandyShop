@@ -102,9 +102,7 @@ int main(int argc, const char * argv[])
 			string name;
 			cout << "Enter name of candy: ";
 			cin >> name;
-			cout << "u ok" << endl;
 			Candy* inquireCandy = myShop->getCandy(name);
-			cout << "hbn" << endl;
 			if (inquireCandy != nullptr) {
 				cout << "Candy already exists in store." << endl;
 				inquireCandy->toPrint();
@@ -137,21 +135,29 @@ int main(int argc, const char * argv[])
 		}
 		else if (x == "o" || x == "O")
 		{
-			myShop->order();
-            
-			cout << " have been ordered" << endl;
+			if (myShop->order()) {
+				cout << "have been ordered" << endl;
+			}
+			else {
+				cout << "No candy to order." << endl;
+			}
 		}
 		else if (x == "d" || x == "D")
 		{
 			//read candy name in file, find it in list, update have values accordingly
-			myShop->delivery();
-			cout << "Your delivery succeeded" << endl;
+			if (myShop->delivery()) {
+				cout << "Your delivery succeeded." << endl;
+			}
+			else {
+				cout << "No delivery available." << endl;
+			}
 		}
 		else if (x == "r" || x == "R")
 		{
 			//go through candies linearly, compare want and have values, add a return order to file for excessive numbers of candies
-            myShop->returnCandy();
-            cout << "Candy has been returned" << endl;
+			if (!myShop->returnCandy()) {
+				cout << "No candy to return." << endl;
+			}
 		}
 		//sell
 		else if (x == "s" || x == "S")

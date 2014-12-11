@@ -15,10 +15,11 @@
 class CandyShop {
 
 private:
-	ArrayList candyList;
+	ArrayList* candyList;
 
 public:
-	CandyShop(ArrayList candyList = ArrayList());
+	CandyShop(ArrayList* candyList = new ArrayList());
+	~CandyShop();
 	
 	void importShipment();
 
@@ -35,9 +36,9 @@ public:
 	//search for candy, decrease count or add to stock, place buyer on waitlist if necessary
 	void sell(Candy* candy);
 
-	void delivery();
+	bool delivery();
 
-	void order();
+	bool order();
 
 	//change want value
 	void modify();
@@ -45,7 +46,7 @@ public:
 	//print out sorted list
 	void list();
     
-    void returnCandy();
+    bool returnCandy();
 
 	void help();
 
