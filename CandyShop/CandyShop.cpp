@@ -177,7 +177,7 @@ void CandyShop::load(){
 						lasttime = thistime;
 						thistime = candyList->get(candyList->length() - 1)->getWaitlist()->length();
 					}
-					cout << "name: " << name << "\tnumber:" << quantity << "\twanted on shelf:" << wanted << endl;
+					cout << "name: " << name << " \tnumber:" << quantity << " \twanted on shelf:" << wanted << endl;
 				}
 			}
 		}
