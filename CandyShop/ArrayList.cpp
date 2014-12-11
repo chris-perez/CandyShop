@@ -17,6 +17,9 @@ ArrayList::ArrayList(){
 // O(1)
 ArrayList::~ArrayList(){
 	long startTime = clock();
+	for (int i = 0; i < numItems; i++) {
+		delete arr[i];
+	}
 	delete[] arr;
 	ticks += clock() - startTime;
 }

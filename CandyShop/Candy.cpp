@@ -90,6 +90,7 @@ void Candy::setWanted(int wantedOnShelf){
 }
 
 void Candy::toPrint() {
+	//it broke here?
 	cout << name << endl << "\tCurrent stock : " << quantity << endl << "\tWanted on shelf : " << wantedOnShelf << endl << "\tWait list:" << waitList->toString() << endl;
 }
 

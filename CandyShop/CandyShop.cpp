@@ -132,7 +132,7 @@ void CandyShop::save(){
 
 void CandyShop::load(){
 	string filename = "save.txt";
-	{//delivery worked when it had this
+	{
 		ifstream infile(filename);
 		if (infile){
 			while (infile){
@@ -144,7 +144,7 @@ void CandyShop::load(){
 					getline(splitter, name, ',');
 					getline(splitter, quantity, ',');
 					getline(splitter, wanted, ',');
-					candyList.addToEnd(new Candy(name, stoi(quantity), stoi(wanted)));
+					candyList.insert(new Candy(name, stoi(quantity), stoi(wanted)));
 					int thistime = 0;
 					int lasttime = -1;
 					while (lasttime != thistime){

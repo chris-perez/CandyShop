@@ -102,7 +102,9 @@ int main(int argc, const char * argv[])
 			string name;
 			cout << "Enter name of candy: ";
 			cin >> name;
+			cout << "u ok" << endl;
 			Candy* inquireCandy = myShop->getCandy(name);
+			cout << "hbn" << endl;
 			if (inquireCandy != nullptr) {
 				cout << "Candy already exists in store." << endl;
 				inquireCandy->toPrint();
