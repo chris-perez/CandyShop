@@ -14,28 +14,29 @@ Candy::Candy(string name, int quantity, int wantedOnShelf){
 	this->name = name;
 	this->quantity = quantity;
 	this->wantedOnShelf = wantedOnShelf;
-	waitList = Queue();
+	waitList = new Queue();
 }
 
 Candy::Candy() {
 	name = "None";
 	quantity = 0;
 	wantedOnShelf = 0;
-	waitList = Queue();
+	waitList = new Queue();
+	//Queue has a deconstructor so Candy does not need one
 }
 
 string Candy::getName(){
 	return name;
 }
 
-Queue Candy::getWaitlist(){
+Queue* Candy::getWaitlist(){
 	return waitList;
 }
 
 void Candy::deliverToWaitlist(){
-	for (int i = 0; i < waitList.length(); i++){
-		cout << "Name: " << waitList.getStart() << " -- Candy: " <<name << endl;
-		waitList.removeStart();
+	while (quantity > 0 && waitList->length() > 0) {
+		cout << "Name: " << waitList->getStart() << " -- Candy: " <<name << endl;
+		waitList->removeStart();
 		quantity--;
 	}
 }
@@ -44,23 +45,25 @@ void Candy::add(int quantity){
 	this->quantity += quantity;
 }
 
-bool Candy::sell(int quantity){
-	if (this->quantity > 0){
+int Candy::sell(int quantity){
+	if (this->quantity - quantity >= 0) {
 		this->quantity -= quantity;
-		return true;
+		return quantity;
 	}
 	else{
-		return false;
+		int numSold = this->quantity;
+		this->quantity = 0;
+		return numSold;
 	}
 }
 
 void Candy::addToWaitlist(string personName) {
-	waitList.addToEnd(personName);
+	waitList->addToEnd(personName);
 }
 
 string Candy::removeFromWaitList() {
-	string name = waitList.getStart();
-	waitList.removeStart();
+	string name = waitList->getStart();
+	waitList->removeStart();
 	return name;
 }
 
@@ -85,18 +88,10 @@ void Candy::setWanted(int wantedOnShelf){
 }
 
 void Candy::toPrint() {
-	cout << "test Candy toPrint" << endl;
-	cout << name << endl << "Current stock: " << quantity << endl << "Wanted on shelf: " << wantedOnShelf << endl << "Wait list:" << endl << waitList.toString() << endl;
+	cout << name << endl << "\tCurrent stock : " << quantity << endl << "\tWanted on shelf : " << wantedOnShelf << endl << "\tWait list:" << waitList->toString() << endl;
 }
 
 ostream& operator<< (ostream &out, Candy &candy){
-	cout << "Kelly is testing the Candy ostream operator" << endl;
-	out << candy.name << ":" << endl;
-	cout << "here i am" << endl;
-	out << "\tCurrent stock : " << candy.quantity << endl;
-	cout << "with my ninja clan" << endl;
-	out << "\tWanted on shelf : " << candy.wantedOnShelf << endl;
-	cout << "ninja clan here we stand" << endl;
-	out << "\tWait list : " << candy.waitList << endl << "\t\n";
+	out << candy.name << ":" << endl << "\tCurrent stock : " << candy.quantity << endl << "\tWanted on shelf : " << candy.wantedOnShelf << endl << "\tWait list : " << candy.waitList << endl << "\t\n";
 	return out;
 }

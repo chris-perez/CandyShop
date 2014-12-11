@@ -37,7 +37,7 @@ void addCandyToOrder(string filename, Candy* candy){
 	ofstream outf;
 	outf.open(filename);
 	if (outf){
-		outf << candy->getName() << ", " << candy->getWanted() + candy->getWaitlist().length() << endl;
+		outf << candy->getName() << ", " << candy->getWanted() + candy->getWaitlist()->length() << endl;
 		outf.close();
 	}else {// Print an error and exit
 		cerr << "Can't write to file" << endl;
@@ -78,11 +78,7 @@ void CandyShop::delivery(){
 					string name, quantity;
 					getline(splitter, name, ',');
 					getline(splitter, quantity, ',');
-<<<<<<< HEAD
-					cout << "name:" << name << "/tnumber:" << quantity << endl;
-=======
 					cout << "name: " << name << " \tnumber:" << quantity << endl;
->>>>>>> FETCH_HEAD
 					Candy* candy = getCandy(name);
 					candy->setQuantity(candy->getQuantity() + stoi(quantity));
 					//some quantity goes to waitlist
@@ -99,7 +95,7 @@ void CandyShop::delivery(){
 void CandyShop::order(){
 	string filename = "delivery.txt";
 	for (int i = 0; i < candyList.length(); i++){
-		int needed = candyList.get(i)->getWanted() + candyList.get(i)->getWaitlist().length();
+		int needed = candyList.get(i)->getWanted() + candyList.get(i)->getWaitlist()->length();
 		if (candyList.get(i)->getQuantity() < needed){
 			addCandyToOrder(filename, candyList.get(i));
             cout << candyList.get(i)->getWanted() << " of " << candyList.get(i)->getName();
@@ -108,7 +104,6 @@ void CandyShop::order(){
 }
 
 void CandyShop::print() {
-	cout << "Kelly is testing print" << endl;
 	candyList.printList();
 }
 
@@ -118,15 +113,15 @@ void CandyShop::save(){
 	outf.open(filename);
 	if (outf){
 		for (int i = 0; i < candyList.length(); i++){
-			outf << candyList.get(i)->getName() << ", " << candyList.get(i)->getQuantity() << ", " << candyList.get(i)->getWanted();
-			Queue* waitlist = new Queue(candyList.get(i)->getWaitlist());
-			while (waitlist->length() > 1){
-				outf << waitlist->getStart() << ", ";
-				waitlist->removeStart();
+			outf << candyList.get(i)->getName() << "," << candyList.get(i)->getQuantity() << "," << candyList.get(i)->getWanted() << ",";
+			Node* current = candyList.get(i)->getWaitlist()->getStartNode();
+			if (current != nullptr) {
+				while (current->getNext() != nullptr){
+					outf << current->getItem() << ",";
+					current = current->getNext();
+				}
+				outf << current->getItem() << endl;
 			}
-			outf << waitlist->getStart() << endl;
-			waitlist->removeStart();
-			
 		}
 		outf.close();
 	}

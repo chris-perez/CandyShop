@@ -163,19 +163,22 @@ int main(int argc, const char * argv[])
 				int quantity;
 				cout << "Enter the quantity of "<< name << " that you would like to sell: ";
 				cin >> quantity;
-				if (inquireCandy->sell(quantity)){
+				int numSold = inquireCandy->sell(quantity);
+				if (numSold == quantity){
 					cout << "Enjoy your candy." << endl;
 				}
 				else{
 					//if out of stock
 					string answer;
 					cout << "The candy you asked for is out of stock." << endl;
-					cout << "Would you like us to add you to the waitlist for this candy? (y/n)" << endl;
+					cout << "Would you like us to add you to the waitlist for this candy? (y/n): ";
 					cin >> answer;
 					if (answer == "y" || answer == "Y"){
 						cout << "Please enter your name: ";
 						cin >> name;
-						inquireCandy->addToWaitlist(name);
+						for (int i = 0; i < quantity - numSold; i++) {
+							inquireCandy->addToWaitlist(name);
+						}
 						cout << "Thank you." << endl;
 					}else{
 						cout << "Sorry for the inconvenience." << endl;

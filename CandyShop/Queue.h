@@ -29,6 +29,8 @@ public:
 	//O(1)
 	const string getStart();
 
+	Node* getStartNode();
+
 	//O(c)
 	string removeStart();
 

@@ -18,7 +18,7 @@ private:
 	string name;
 	int quantity;
 	int wantedOnShelf;
-	Queue waitList;
+	Queue* waitList;
 
 public:
 	Candy();
@@ -26,14 +26,15 @@ public:
 	string getName();
     int getQuantity();
     int getWanted();
-	Queue getWaitlist();
+	Queue* getWaitlist();
 	void deliverToWaitlist();
     void setName(string name);
     void setQuantity(int quantity);
     void setWanted(int wantedOnShelf);
     
 	void add(int quantity);
-	bool sell(int quantity);
+	//returns the number actually sold
+	int sell(int quantity);
 	void addToWaitlist(string name);
 	string removeFromWaitList();
 

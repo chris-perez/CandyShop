@@ -59,17 +59,9 @@ Data ArrayList::removeEnd(){
 	Data temp = arr[numItems-1];
 	arr[numItems - 1] = nullptr;
 	numItems--;
-<<<<<<< HEAD
     ticks += clock() - startTime;
 	return temp;
-
-=======
-    
-    ticks += clock() - startTime;
-	return temp;
-
 	
->>>>>>> FETCH_HEAD
 }
 
 // O(1)
@@ -97,7 +89,6 @@ void ArrayList::addToEnd(Data toAdd){
 
 // O(n)
 void ArrayList::printList(){
-	cout << "Kelly is testing printList" << endl;
 	if (numItems > 0){
 		for (int i = 0; i < numItems; i++){
 			arr[i]->toPrint();
