@@ -142,46 +142,26 @@ int main(int argc, const char * argv[])
 		else if (x == "d" || x == "D")
 		{
 			//read candy name in file, find it in list, update have values accordingly
-<<<<<<< HEAD
-            myShop->delivery();
-			cout << "delivery" << endl;
-=======
 			myShop->delivery();
 			cout << "Your delivery succeeded" << endl;
->>>>>>> FETCH_HEAD
 		}
 		else if (x == "r" || x == "R")
 		{
 			//go through candies linearly, compare want and have values, add a return order to file for excessive numbers of candies
-<<<<<<< HEAD
-            //if have value>want value
-            //have==want
-            myShop->returnCandy();
-			cout << "return" << endl;
-=======
             myShop->returnCandy();
             cout << "Candy has been returned" << endl;
->>>>>>> FETCH_HEAD
 		}
 		//sell
 		else if (x == "s" || x == "S")
 		{
 			string name;
-<<<<<<< HEAD
 			cout << "What candy would you like to sell?: ";
-=======
-			cout << "What candy would you like to sell? : ";
->>>>>>> origin/master
 			cin >> name;
 			Candy* inquireCandy = myShop->getCandy(name);
 
 			if (inquireCandy != nullptr){
 				int quantity;
-<<<<<<< HEAD
-				cout << "Quantity?: " << endl;
-=======
 				cout << "Enter the quantity of "<< name << " that you would like to sell: ";
->>>>>>> origin/master
 				cin >> quantity;
 				if (inquireCandy->sell(quantity)){
 					cout << "Enjoy your candy." << endl;
