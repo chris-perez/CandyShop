@@ -132,27 +132,34 @@ void CandyShop::save(){
 
 void CandyShop::load(){
 	string filename = "save.txt";
-	ifstream infile(filename);
-	if (infile){
-		while (infile){
-			string strInput;
-			getline(infile, strInput);
-			if (strInput.length() > 0){
-				stringstream splitter(strInput);
-				string name, quantity, wanted, waitlistName;
-				getline(splitter, name, ',');
-				getline(splitter, quantity, ',');
-				getline(splitter, wanted, ',');
-				candyList.addToEnd(new Candy(name, stoi(quantity), stoi(wanted)));
-				while (strInput.length() > 0){
-					getline(splitter, waitlistName, ',');
-					candyList.get(candyList.length()-1)->addToWaitlist(waitlistName);
+	{//delivery worked when it had this
+		ifstream infile(filename);
+		if (infile){
+			while (infile){
+				string strInput;
+				getline(infile, strInput);
+				if (strInput.length() > 0){
+					stringstream splitter(strInput);
+					string name, quantity, wanted, waitlistName;
+					getline(splitter, name, ',');
+					getline(splitter, quantity, ',');
+					getline(splitter, wanted, ',');
+					candyList.addToEnd(new Candy(name, stoi(quantity), stoi(wanted)));
+					int thistime = 0;
+					int lasttime = -1;
+					while (lasttime != thistime){
+						getline(splitter, waitlistName, ',');
+						candyList.get(candyList.length() - 1)->addToWaitlist(waitlistName);
+						lasttime = thistime;
+						thistime = candyList.get(candyList.length() - 1)->getWaitlist()->length();
+					}
+					cout << "name: " << name << "\tnumber:" << quantity << "\twanted on shelf:" << wanted << endl;
 				}
-				cout << "name: " << name << "\tnumber:" << quantity << "\twords:" << wanted << endl;
 			}
 		}
+		else {
+			cerr << "File not found." << endl;
+		}
 	}
-	else {
-		cerr << "File not found." << endl;
-	}
+	
 }

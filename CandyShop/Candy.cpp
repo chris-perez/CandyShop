@@ -58,7 +58,9 @@ int Candy::sell(int quantity){
 }
 
 void Candy::addToWaitlist(string personName) {
-	waitList->addToEnd(personName);
+	if (personName != "") {
+		waitList->addToEnd(personName);
+	}
 }
 
 string Candy::removeFromWaitList() {
