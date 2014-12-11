@@ -106,13 +106,23 @@ bool CandyShop::delivery(){
 bool CandyShop::order(){
 	bool wasThereAnOrder = false;
 	string filename = "delivery.txt";
+	string text = "";
 	for (int i = 0; i < candyList->length(); i++){
 		int needed = candyList->get(i)->getWanted() + candyList->get(i)->getWaitlist()->length();
 		if (candyList->get(i)->getQuantity() < needed){
-			addCandyToOrder(filename, candyList->get(i));
+			text += candyList->get(i)->getName() + ", " + to_string(needed - candyList->get(i)->getQuantity()) + "\n";
 			cout << needed - candyList->get(i)->getQuantity() << " of " << candyList->get(i)->getName() << ", ";
 			wasThereAnOrder = true;
 		}
+	}
+	ofstream outf;
+	outf.open(filename);
+	if (outf){
+		outf << text << endl;
+		outf.close();
+	}
+	else {// Print an error and exit
+		cerr << "Can't write to file" << endl;
 	}
 	return wasThereAnOrder;
 }
