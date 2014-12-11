@@ -123,8 +123,7 @@ int main(int argc, const char * argv[])
 			cin >> name;
 			Candy* modifyCandy = myShop->getCandy(name);
 			if (modifyCandy->getName() != "None") {
-				cout << "there are currently: " << modifyCandy->getWanted() << " " << name << endl;
-				cout << "how many would you like now?" << endl;
+				cout << "Current number wanted on shelf: " << modifyCandy->getWanted() << " " << name << endl << "How many would you like now?: ";
 				cin >> x;
 				modifyCandy->setWanted(x);
 			}
@@ -178,7 +177,7 @@ int main(int argc, const char * argv[])
 				else{
 					//if out of stock
 					string answer;
-					cout << "The candy you asked for is out of stock." << endl;
+					cout << "There is not enough candy in stock for this sale." << endl;
 					cout << "Would you like us to add you to the waitlist for this candy? (y/n): ";
 					cin >> answer;
 					if (answer == "y" || answer == "Y"){
@@ -187,7 +186,7 @@ int main(int argc, const char * argv[])
 						for (int i = 0; i < quantity - numSold; i++) {
 							inquireCandy->addToWaitlist(name);
 						}
-						cout << "Thank you." << endl;
+						cout << "Thank you. You have " << numSold << " now." << endl;
 					}else{
 						cout << "Sorry for the inconvenience." << endl;
 					}
@@ -199,6 +198,7 @@ int main(int argc, const char * argv[])
 		}
 		else if (x == "q" || x == "Q")
 		{
+			cout << "Saving data..." << endl;
 			myShop->save();
 			cout << "Goodbye!" << endl;
 			running = false;

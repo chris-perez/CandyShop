@@ -41,7 +41,7 @@ void addCandyToOrder(string filename, Candy* candy){
 	ofstream outf;
 	outf.open(filename);
 	if (outf){
-		outf << candy->getName() << ", " << candy->getWanted() + candy->getWaitlist()->length() << endl;
+		outf << candy->getName() << ", " << candy->getWanted() + candy->getWaitlist()->length() - candy->getQuantity() << endl;
 		outf.close();
 	}else {// Print an error and exit
 		cerr << "Can't write to file" << endl;
@@ -73,6 +73,7 @@ bool CandyShop::returnCandy(){
 }
 
 bool CandyShop::delivery(){
+	bool wasDelivery = false;
 	string filename = "delivery.txt";
 	{//parseFile
 		ifstream infile(filename);
@@ -92,13 +93,14 @@ bool CandyShop::delivery(){
 					//some quantity goes to waitlist
 					candy->deliverToWaitlist();
 					//some goes on the shelf
+					wasDelivery = true;
 				}
 			}
-			return true;
-		}else {
-			return false;
+			ofstream ofs;
+			ofs.open(filename, ofstream::trunc);
 		}
 	}
+	return wasDelivery;
 }
 
 bool CandyShop::order(){
