@@ -1,1 +1,1 @@
-lollipop,7,10,
+lollipop,10,10,oreo,5,5,

@@ -23,21 +23,44 @@ private:
 public:
 	Candy();
 	Candy(string name, int quantity, int wantedOnShelf);
+
+	//returns the name of the candy
 	string getName();
+
+	//returns the quantity in the shop
     int getQuantity();
+
+	//returns how much is wanted on the shelf
     int getWanted();
+
+	//returns the list of people waiting for the candy
 	Queue* getWaitlist();
+
+	//sells candy to everyone on the waitlist
 	void deliverToWaitlist();
+
+	//sets the name
     void setName(string name);
+
+	//sets the quantity in the store
     void setQuantity(int quantity);
+
+	//sets the amount wanted on the shelf
     void setWanted(int wantedOnShelf);
     
+	//adds to quantity
 	void add(int quantity);
+
 	//returns the number actually sold
 	int sell(int quantity);
+	
+	//adds a name to the waitlist
 	void addToWaitlist(string name);
+
+	//removes the first person from waitlist
 	string removeFromWaitList();
 
+	//print the candy info
 	void toPrint();
 
 	//only prints out name of candy (for use with ArrayList mostly)

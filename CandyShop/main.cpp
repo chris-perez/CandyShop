@@ -167,32 +167,8 @@ int main(int argc, const char * argv[])
 			Candy* inquireCandy = myShop->getCandy(name);
 
 			if (inquireCandy != nullptr){
-				int quantity;
-				cout << "Enter the quantity of "<< name << " that you would like to sell: ";
-				cin >> quantity;
-				int numSold = inquireCandy->sell(quantity);
-				if (numSold == quantity){
-					cout << "Enjoy your candy." << endl;
-				}
-				else{
-					//if out of stock
-					string answer;
-					cout << "There is not enough candy in stock for this sale." << endl;
-					cout << "Would you like us to add you to the waitlist for this candy? (y/n): ";
-					cin >> answer;
-					if (answer == "y" || answer == "Y"){
-						cout << "Please enter your name: ";
-						cin >> name;
-						for (int i = 0; i < quantity - numSold; i++) {
-							inquireCandy->addToWaitlist(name);
-						}
-						cout << "Thank you. You have " << numSold << " now." << endl;
-					}else{
-						cout << "Sorry for the inconvenience." << endl;
-					}
-				}
-			}
-			else{
+				myShop->sell(inquireCandy);
+			}else{
 				cout << "Error: Candy not found." << endl;
 			}
 		}

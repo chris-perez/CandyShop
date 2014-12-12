@@ -20,17 +20,20 @@ private:
 public:
 	CandyShop(ArrayList* candyList = new ArrayList());
 	~CandyShop();
-	
-	void importShipment();
 
+	//print list of candies in shop
 	void print();
 
+	//get candy by name
 	Candy* getCandy(string name); //inquire
 
+	//saves candy shop info to file
 	void save();
 
+	//retrieves candy shop info from file
 	void load();
 
+	//adds a candy to the shop
 	void addCandy(Candy* candy);
 
 	//search for candy, decrease count or add to stock, place buyer on waitlist if necessary
@@ -38,19 +41,11 @@ public:
 
 	bool delivery();
 
+	//orders the amount of candy needed to empty waitlist and have enough on shelf
 	bool order();
-
-	//change want value
-	void modify();
-
-	//print out sorted list
-	void list();
     
+	//returns any excess candy
     bool returnCandy();
-
-	void help();
-
-	void quit();
 
 };
 #endif

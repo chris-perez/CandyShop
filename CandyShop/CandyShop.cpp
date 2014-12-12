@@ -37,6 +37,35 @@ void CandyShop::addCandy(Candy* candy){
 	candyList->insert(candy);
 }
 
+void CandyShop::sell(Candy* candy){
+	int quantity;
+	cout << "Enter the quantity of " << candy->getName() << " that you would like to sell: ";
+	cin >> quantity;
+	int numSold = candy->sell(quantity);
+	if (numSold == quantity){
+		cout << "Enjoy your candy." << endl;
+	}else{
+		//if out of stock
+		string answer;
+		cout << "There is not enough candy in stock for this sale." << endl;
+		cout << "Would you like us to add you to the waitlist for this candy? (y/n): ";
+		cin >> answer;
+		if (answer == "y" || answer == "Y"){
+			cout << "Please enter your name: ";
+			string name;
+			cin >> name;
+			for (int i = 0; i < quantity - numSold; i++) {
+				candy->addToWaitlist(name);
+			}
+			cout << "Thank you. You have " << numSold << " now." << endl;
+		}
+		else{
+			cout << "Sorry for the inconvenience." << endl;
+		}
+	}
+	
+}
+
 void addCandyToOrder(string filename, Candy* candy){
 	ofstream outf;
 	outf.open(filename);
