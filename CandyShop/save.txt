@@ -1,1 +1,2 @@
-lollipop,7,10,
+jawbreaker,10,10,
+lollipop,5,5,

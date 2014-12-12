@@ -133,25 +133,29 @@ void CandyShop::print() {
 
 void CandyShop::save(){
 	string filename = "save.txt";
+	string text = "";
+	for (int i = 0; i < candyList->length(); i++){
+		text += candyList->get(i)->getName() + "," + to_string(candyList->get(i)->getQuantity()) + "," + to_string(candyList->get(i)->getWanted()) + ",";
+		Node* current = candyList->get(i)->getWaitlist()->getStartNode();
+		if (current != nullptr) {
+			while (current->getNext() != nullptr){
+				text += current->getItem() + ",";
+				current = current->getNext();
+			}
+			text += current->getItem();
+		}
+		text += "\n";
+	}
 	ofstream outf;
 	outf.open(filename);
 	if (outf){
-		for (int i = 0; i < candyList->length(); i++){
-			outf << candyList->get(i)->getName() << "," << candyList->get(i)->getQuantity() << "," << candyList->get(i)->getWanted() << ",";
-			Node* current = candyList->get(i)->getWaitlist()->getStartNode();
-			if (current != nullptr) {
-				while (current->getNext() != nullptr){
-					outf << current->getItem() << ",";
-					current = current->getNext();
-				}
-				outf << current->getItem() << endl;
-			}
-		}
-		outf.close();
+		outf << text;
 	}
 	else {// Print an error and exit
-		cerr << "Can't write to file" << endl;
+		cerr << "Can't save" << endl;
 	}
+	outf.close();
+	
 }
 
 void CandyShop::load(){

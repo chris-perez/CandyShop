@@ -121,7 +121,12 @@ int ArrayList::searchForInsert(string toFind, int len, int currIdx) {
 		return searchForInsert(toFind, len / 2, currIdx);
 	}
 	else {
-		return searchForInsert(toFind, len - (len / 2 + 1), currIdx + (len / 2 + 1));
+		if (len > 2) {
+			return searchForInsert(toFind, len - (len / 2 + 1), currIdx + (len / 2 + 1));
+		}
+		else {
+			return searchForInsert(toFind, len - (len / 2 + 1), currIdx + (len / 2));
+		}
 	}
 }
 
