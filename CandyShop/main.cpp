@@ -12,72 +12,41 @@
 #include <iostream>
 #include <fstream>
 #include <sstream>
+#include <algorithm>
 
-
+#include <string>
 using namespace std;
 #include <stdio.h>
 #include "CandyShop.h"
 
-void parseLine(string line){
-	if (line.length() > 0){
-		stringstream splitter(line);
-		string name, number, words;
-		getline(splitter, name, ',');
-		getline(splitter, number, ',');
-		getline(splitter, words, ',');
-		cout << "name:" << name << "\tnumber:" << number << "\twords:" << words << endl;
-	}
-}
-
-void parseFile(string filename){
-	ifstream infile(filename);
-	if (infile){
-		while (infile){
-			string strInput;
-			getline(infile, strInput);
-			parseLine(strInput);
-		}
-	}else {
-		cerr << "File not found." << endl;
-	}
-}
-
-void printToFile(string filename){
-	ofstream outf;
-	outf.open(filename);
-	if (outf){
-		//outf << "This is line 1" << endl;
-		//outf << "This is line 2" << endl;
-		outf.close();
-	}else {
-        // Print an error and exit
-		cerr << "Can't write to file" << endl;
-	}
+inline bool isNumeric(std::string input){
+    return std::all_of(input.begin(), input.end(), ::isdigit);
 }
 
 int main(int argc, const char * argv[])
-{
-    //files get created in visual studio
-    //need to have separate folder with files when using Xcode
-    printToFile("testOutput.txt");
-	parseFile("testOutput.txt");
-    
+{   
 	CandyShop* myShop = new CandyShop();
 	bool running = true;
 	myShop->load();
-	string x = "";
+	string x = " ";
     cout << "Keys:" << endl << "I-inquire" << endl << "L-list" << endl << "A-add" << endl << "M-modify" << endl << "O-order" << endl << "D-delivery" << endl << "R-return" << endl << "S-sell" << endl << "Q-quit" << endl << "H-help"<<endl;
 
 
 	while (running)
 	{
+        if(x != ""){
 		cout << "Enter a new command: ";
-		cin >> x;
+        }
+        //cin.ignore();
+        getline(cin, x);
+        //cin >> x;
 		//inquire
 		if (x == "i" || x == "I")
 		{
 			cout << "Enter name of candy: ";
-			cin >> x;
+            //cin.ignore();
+            getline(cin, x);
+            //cin >> x;
 			Candy* inquireCandy = myShop->getCandy(x);
 			if (inquireCandy != nullptr) {
 				inquireCandy->toPrint();
@@ -101,30 +70,43 @@ int main(int argc, const char * argv[])
 		{
 			string name;
 			cout << "Enter name of candy: ";
-			cin >> name;
+            //cin.ignore();
+            getline(cin, name);
+			//cin >> name;
 			Candy* inquireCandy = myShop->getCandy(name);
 			if (inquireCandy != nullptr) {
 				cout << "Candy already exists in store." << endl;
 				inquireCandy->toPrint();
 			}
 			else {
-				int wanted;
-				cout << "How many of " << name << " would you like on shelf? Enter number: ";
-				cin >> wanted;
-				myShop->addCandy(new Candy(name, 0, wanted));
-				cout << "The candy " << name << " has been added." << endl;
+				string wanted;
+                cout << "How many of " << name << " would you like on shelf? Enter number: ";
+                //getline(cin, wanted);
+                cin >> wanted;
+                while(!isNumeric(wanted)){
+                    cout << "Error: invalid input" << endl;
+                    cout << "How many of " << name << " would you like on shelf? Enter number: ";
+                    cin >> wanted;
+                }
+				myShop->addCandy(new Candy(name, 0, stoi(wanted)));
+                cout << "The candy " << name << " has been added." << endl;
 			}
-		}
+        }
+		
 		else if (x == "m" || x == "M")
 		{
 			string name;
 			int x;
 			cout << "Enter name of candy: ";
-			cin >> name;
+            //cin.ignore();
+            getline(cin, name);
+			//cin >> name;
 			Candy* modifyCandy = myShop->getCandy(name);
 			if (modifyCandy->getName() != "None") {
 				cout << "Current number wanted on shelf: " << modifyCandy->getWanted() << " " << name << endl << "How many would you like now?: ";
-				cin >> x;
+                cin >> x;
+                cin.ignore();
+                //getline(cin, x);
 				modifyCandy->setWanted(x);
 			}
 			else {
@@ -163,7 +145,9 @@ int main(int argc, const char * argv[])
 		{
 			string name;
 			cout << "What candy would you like to sell?: ";
-			cin >> name;
+            //cin.ignore();
+            getline(cin, name);
+			//cin >> name;
 			Candy* inquireCandy = myShop->getCandy(name);
 
 			if (inquireCandy != nullptr){
@@ -180,7 +164,9 @@ int main(int argc, const char * argv[])
 			running = false;
 		}
 		else {
-			cout << "Error: invalid command" << endl;
+            if(x != ""){
+                cout << "Error: invalid command" << endl;
+            }
 		}
 	}
 	return 0;

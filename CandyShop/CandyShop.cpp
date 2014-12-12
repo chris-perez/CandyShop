@@ -15,7 +15,7 @@
 
 using namespace std;
 
-CandyShop::CandyShop(ArrayList* candyList) {
+CandyShop::CandyShop(List* candyList) {
 	this->candyList = candyList;
 }
 
@@ -40,22 +40,28 @@ void CandyShop::addCandy(Candy* candy){
 void CandyShop::sell(Candy* candy){
 	int quantity;
 	cout << "Enter the quantity of " << candy->getName() << " that you would like to sell: ";
-	cin >> quantity;
+	cin.ignore();
+	getline(cin, candy->getName());
+	//cin >> quantity;
 	int numSold = candy->sell(quantity);
 	if (numSold == quantity){
 		cout << "Enjoy your candy." << endl;
-	}else{
+	}
+	else{
 		//if out of stock
 		string answer;
 		cout << "There is not enough candy in stock for this sale." << endl;
 		cout << "Would you like us to add you to the waitlist for this candy? (y/n): ";
-		cin >> answer;
+		//cin.ignore();
+		getline(cin, answer);
+		//cin >> answer;
 		if (answer == "y" || answer == "Y"){
 			cout << "Please enter your name: ";
-			string name;
-			cin >> name;
+			cin.ignore();
+			getline(cin, candy->getName());
+			//cin >> name;
 			for (int i = 0; i < quantity - numSold; i++) {
-				candy->addToWaitlist(name);
+				candy->addToWaitlist(candy->getName());
 			}
 			cout << "Thank you. You have " << numSold << " now." << endl;
 		}
@@ -162,25 +168,29 @@ void CandyShop::print() {
 
 void CandyShop::save(){
 	string filename = "save.txt";
+	string text = "";
+	for (int i = 0; i < candyList->length(); i++){
+		text += candyList->get(i)->getName() + "," + to_string(candyList->get(i)->getQuantity()) + "," + to_string(candyList->get(i)->getWanted()) + ",";
+		Node* current = candyList->get(i)->getWaitlist()->getStartNode();
+		if (current != nullptr) {
+			while (current->getNext() != nullptr){
+				text += current->getItem() + ",";
+				current = current->getNext();
+			}
+			text += current->getItem();
+		}
+		text += "\n";
+	}
 	ofstream outf;
 	outf.open(filename);
 	if (outf){
-		for (int i = 0; i < candyList->length(); i++){
-			outf << candyList->get(i)->getName() << "," << candyList->get(i)->getQuantity() << "," << candyList->get(i)->getWanted() << ",";
-			Node* current = candyList->get(i)->getWaitlist()->getStartNode();
-			if (current != nullptr) {
-				while (current->getNext() != nullptr){
-					outf << current->getItem() << ",";
-					current = current->getNext();
-				}
-				outf << current->getItem() << endl;
-			}
-		}
-		outf.close();
+		outf << text;
 	}
 	else {// Print an error and exit
-		cerr << "Can't write to file" << endl;
+		cerr << "Can't save" << endl;
 	}
+	outf.close();
+	
 }
 
 void CandyShop::load(){
