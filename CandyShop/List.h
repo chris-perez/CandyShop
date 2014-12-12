@@ -50,6 +50,15 @@ public:
     //prints the contents of the list to the screen
     virtual void printList() = 0;
     
+	//returns the index of the desired item, or -1 if not found
+	virtual int binarySearch(string toFind) = 0;
+
+	//returns true or false to indicate whether or not it was successful
+	virtual bool insert(Data toAdd) = 0;
+
+	//gets the item associated with index i
+	virtual Data get(int i) = 0;
+
     //returns the number of bytes currently used by this entire list object
     virtual int calcMemInUse() = 0;
     

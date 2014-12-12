@@ -15,7 +15,7 @@
 
 using namespace std;
 
-CandyShop::CandyShop(ArrayList* candyList) {
+CandyShop::CandyShop(List* candyList) {
 	this->candyList = candyList;
 }
 

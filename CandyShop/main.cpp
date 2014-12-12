@@ -18,50 +18,9 @@ using namespace std;
 #include <stdio.h>
 #include "CandyShop.h"
 
-void parseLine(string line){
-	if (line.length() > 0){
-		stringstream splitter(line);
-		string name, number, words;
-		getline(splitter, name, ',');
-		getline(splitter, number, ',');
-		getline(splitter, words, ',');
-		cout << "name:" << name << "\tnumber:" << number << "\twords:" << words << endl;
-	}
-}
-
-void parseFile(string filename){
-	ifstream infile(filename);
-	if (infile){
-		while (infile){
-			string strInput;
-			getline(infile, strInput);
-			parseLine(strInput);
-		}
-	}else {
-		cerr << "File not found." << endl;
-	}
-}
-
-void printToFile(string filename){
-	ofstream outf;
-	outf.open(filename);
-	if (outf){
-		//outf << "This is line 1" << endl;
-		//outf << "This is line 2" << endl;
-		outf.close();
-	}else {
-        // Print an error and exit
-		cerr << "Can't write to file" << endl;
-	}
-}
 
 int main(int argc, const char * argv[])
-{
-    //files get created in visual studio
-    //need to have separate folder with files when using Xcode
-    printToFile("testOutput.txt");
-	parseFile("testOutput.txt");
-    
+{   
 	CandyShop* myShop = new CandyShop();
 	bool running = true;
 	myShop->load();

@@ -15,10 +15,10 @@
 class CandyShop {
 
 private:
-	ArrayList* candyList;
+	List* candyList;
 
 public:
-	CandyShop(ArrayList* candyList = new ArrayList());
+	CandyShop(List* candyList = new ArrayList());
 	~CandyShop();
 	
 	void importShipment();
