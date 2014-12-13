@@ -37,16 +37,12 @@ int main(int argc, const char * argv[])
         if(x != ""){
 		cout << "Enter a new command: ";
         }
-        //cin.ignore();
         getline(cin, x);
-        //cin >> x;
 		//inquire
 		if (x == "i" || x == "I")
 		{
 			cout << "Enter name of candy: ";
-            //cin.ignore();
             getline(cin, x);
-            //cin >> x;
 			Candy* inquireCandy = myShop->getCandy(x);
 			if (inquireCandy != nullptr) {
 				inquireCandy->toPrint();
@@ -70,23 +66,19 @@ int main(int argc, const char * argv[])
 		{
 			string name;
 			cout << "Enter name of candy: ";
-            //cin.ignore();
             getline(cin, name);
-			//cin >> name;
 			Candy* inquireCandy = myShop->getCandy(name);
 			if (inquireCandy != nullptr) {
 				cout << "Candy already exists in store." << endl;
 				inquireCandy->toPrint();
-			}
-			else {
+			}else {
 				string wanted;
                 cout << "How many of " << name << " would you like on shelf? Enter number: ";
-                //getline(cin, wanted);
-                cin >> wanted;
+                getline(cin, wanted);
                 while(!isNumeric(wanted)){
                     cout << "Error: invalid input" << endl;
                     cout << "How many of " << name << " would you like on shelf? Enter number: ";
-                    cin >> wanted;
+					getline(cin, wanted);
                 }
 				myShop->addCandy(new Candy(name, 0, stoi(wanted)));
                 cout << "The candy " << name << " has been added." << endl;
@@ -95,18 +87,16 @@ int main(int argc, const char * argv[])
 		
 		else if (x == "m" || x == "M")
 		{
+			string answer;
 			string name;
 			int x;
 			cout << "Enter name of candy: ";
-            //cin.ignore();
             getline(cin, name);
-			//cin >> name;
 			Candy* modifyCandy = myShop->getCandy(name);
 			if (modifyCandy->getName() != "None") {
 				cout << "Current number wanted on shelf: " << modifyCandy->getWanted() << " " << name << endl << "How many would you like now?: ";
-                cin >> x;
-                cin.ignore();
-                //getline(cin, x);
+                getline(cin, answer);
+				x = stoi(answer);
 				modifyCandy->setWanted(x);
 			}
 			else {
@@ -145,9 +135,7 @@ int main(int argc, const char * argv[])
 		{
 			string name;
 			cout << "What candy would you like to sell?: ";
-            //cin.ignore();
             getline(cin, name);
-			//cin >> name;
 			Candy* inquireCandy = myShop->getCandy(name);
 
 			if (inquireCandy != nullptr){

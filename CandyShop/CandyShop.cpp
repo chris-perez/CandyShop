@@ -41,10 +41,8 @@ void CandyShop::sell(Candy* candy){
 	string answer;
 	int quantity;
 	cout << "Enter the quantity of " << candy->getName() << " that you would like to sell: ";
-	cin.ignore();
 	getline(cin, answer);
 	quantity = stoi(answer);
-	//cin >> quantity;
 	int numSold = candy->sell(quantity);
 	if (numSold == quantity){
 		cout << "Enjoy your candy." << endl;
@@ -53,16 +51,12 @@ void CandyShop::sell(Candy* candy){
 		//if out of stock		
 		cout << "There is not enough candy in stock for this sale." << endl;
 		cout << "Would you like us to add you to the waitlist for this candy? (y/n): ";
-		//cin.ignore();
 		getline(cin, answer);
-		//cin >> answer;
 		if (answer == "y" || answer == "Y"){
 			cout << "Please enter your name: ";
-			cin.ignore();
-			getline(cin, candy->getName());
-			//cin >> name;
+			getline(cin, answer);
 			for (int i = 0; i < quantity - numSold; i++) {
-				candy->addToWaitlist(candy->getName());
+				candy->addToWaitlist(answer);
 			}
 			cout << "Thank you. You have " << numSold << " now." << endl;
 		}

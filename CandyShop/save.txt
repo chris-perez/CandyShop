@@ -1,3 +1,5 @@
+carmel,4,4,
 jawbreaker,10,10,
 lollipop,5,5,
-oreos,0,6,
+oreos,6,6,
+snickers,3,3,
