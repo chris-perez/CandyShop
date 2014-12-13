@@ -154,6 +154,50 @@ bool ArrayList::insert(Data toAdd){
 	}
 }
 
+bool binSearch(Candy** currArrayPtr, int first, int last, const string searchValue)
+{
+	if (first == last)
+	{
+		if (searchValue == currArrayPtr[first]->getName())
+		{
+			return true;
+		}
+		else
+		{
+			return false;
+		}
+	}
+	else
+	{
+		int mid = (first + last) / 2;
+		if (searchValue == currArrayPtr[mid]->getName())
+		{
+			return true;
+		}
+		else if (searchValue < currArrayPtr[mid]->getName())
+		{
+			return binSearch(currArrayPtr, first, mid - 1, searchValue);
+		}
+		else
+		{
+			return binSearch(currArrayPtr, mid + 1, last, searchValue);
+		}
+	}
+	return false;
+}
+//binary search for searchValue
+//Pre-condition: currArrayPtr must point to a sorted array
+//Returns: true if the value is present, false otherwise
+bool binSearch(Candy** currArrayPtr, const int currArraySize, const string searchValue)
+{
+	//find the middle and see if its greater or less than the search value
+	//if it's greater create a sub array to the left
+	//if its less create a sub array to the right
+	//find the middle of those arrays
+	//repeat
+	return binSearch(currArrayPtr, 0, currArraySize, searchValue);
+}
+
 int ArrayList::binarySearch(string toFind, int len, Data start) {
 	//base case for found
 	if (arr[len/2]->getName() == toFind) {
@@ -177,7 +221,8 @@ int ArrayList::binarySearch(string toFind) {
 		return -1;
 	}
 	else {
-		return binarySearch(toFind, numItems, arr[0]);
+		//return binarySearch(toFind, numItems, arr[0]);
+		return binSearch(arr, numItems, toFind);
 	}
 }
 

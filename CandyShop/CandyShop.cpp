@@ -38,18 +38,19 @@ void CandyShop::addCandy(Candy* candy){
 }
 
 void CandyShop::sell(Candy* candy){
+	string answer;
 	int quantity;
 	cout << "Enter the quantity of " << candy->getName() << " that you would like to sell: ";
 	cin.ignore();
-	getline(cin, candy->getName());
+	getline(cin, answer);
+	quantity = stoi(answer);
 	//cin >> quantity;
 	int numSold = candy->sell(quantity);
 	if (numSold == quantity){
 		cout << "Enjoy your candy." << endl;
 	}
 	else{
-		//if out of stock
-		string answer;
+		//if out of stock		
 		cout << "There is not enough candy in stock for this sale." << endl;
 		cout << "Would you like us to add you to the waitlist for this candy? (y/n): ";
 		//cin.ignore();

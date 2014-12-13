@@ -1,2 +1,3 @@
 jawbreaker,10,10,
 lollipop,5,5,
+oreos,0,6,
